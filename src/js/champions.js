@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let searchTerm = '';
 
   // Carregar dados locais do JSON
-  fetch('data/champions.json')
+  fetch('/data/champions.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Erro ao carregar banco de dados de campeões');
