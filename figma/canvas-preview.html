@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Figma Canvas & Design System Showcase — Portal do Invocador</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <style>
+    /* Estilos específicos do visualizador de Figma */
+    .figma-canvas-bar {
+      position: sticky;
+      top: 0;
+      background: #1e1e1e;
+      border-bottom: 1px solid #333;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .figma-badge {
+      background: #0d99ff;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .canvas-section {
+      background: #121212;
+      border: 1px dashed #333;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 8px;
+      max-width: 1360px;
+    }
+    .canvas-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .swatch-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .swatch-color {
+      height: 70px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: 12px;
+      font-size: 0.82rem;
+    }
+    .swatch-name {
+      font-weight: 600;
+      color: #fff;
+    }
+    .swatch-hex {
+      font-family: monospace;
+      color: var(--color-gold-primary);
+    }
+    .frame-preview-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-gold-dark);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .frame-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body style="background-color: #0b0b0e;">
+
+  <!-- BARRA DE FERRAMENTAS DO FIGMA -->
+  <header class="figma-canvas-bar">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span class="figma-badge">FIGMA DESIGN SYSTEM</span>
+      <strong>Portal do Invocador • Arquivo de Especificação e Componentes</strong>
+    </div>
+    <div>
+      <a href="../index.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 6px 16px;">Ver Site Completo &rarr;</a>
+    </div>
+  </header>
+
+  <main style="padding: 24px;">
+
+    <!-- 1. COLOR TOKENS SWATCHES -->
+    <section class="canvas-section">
+      <h2 class="canvas-title">❖ 1. Design Tokens de Cores (Paleta Hextech)</h2>
+      <p style="color: #999; margin-bottom: 24px;">Variáveis prontas para importar com Tokens Studio for Figma ou criar como Figma Variables nativas.</p>
+      
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #040911;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/abyss</div>
+            <div class="swatch-hex">#040911</div>
+            <div style="color: #777;">Fundo Principal</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #0A1428;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/surface</div>
+            <div class="swatch-hex">#0A1428</div>
+            <div style="color: #777;">Cartões & Painéis</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #C8AA6E;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/gold-primary</div>
+            <div class="swatch-hex">#C8AA6E</div>
+            <div style="color: #777;">Ouro Hextech Oficial</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #F0E6D2;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/gold-light</div>
+            <div class="swatch-hex">#F0E6D2</div>
+            <div style="color: #777;">Ouro Marfim Títulos</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #785A28;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/gold-dark</div>
+            <div class="swatch-hex">#785A28</div>
+            <div style="color: #777;">Bordas e Divisores</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #0AC8B9;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/magic-cyan</div>
+            <div class="swatch-hex">#0AC8B9</div>
+            <div style="color: #777;">Azul Mágico Hextech</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #A09B8C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/text-secondary</div>
+            <div class="swatch-hex">#A09B8C</div>
+            <div style="color: #777;">Texto Corrido</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: #2DEB90;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">color/success</div>
+            <div class="swatch-hex">#2DEB90</div>
+            <div style="color: #777;">Sucesso & Ativo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TIPOGRAFIA -->
+    <section class="canvas-section">
+      <h2 class="canvas-title">❖ 2. Escala Tipográfica (Text Styles)</h2>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="border-bottom: 1px solid #222; padding-bottom: 12px;">
+          <span style="color: #777; font-size: 0.8rem;">Display Hero (Cinzel Bold 56px)</span>
+          <h1 style="font-size: 3.5rem; color: var(--color-gold-light); margin-top: 4px;">PORTAL DO INVOCADOR</h1>
+        </div>
+        <div style="border-bottom: 1px solid #222; padding-bottom: 12px;">
+          <span style="color: #777; font-size: 0.8rem;">Heading 1 (Cinzel Semi-Bold 40px)</span>
+          <h2 style="font-size: 2.5rem; color: var(--color-gold-light); margin-top: 4px;">A HISTÓRIA DE LEAGUE OF LEGENDS</h2>
+        </div>
+        <div style="border-bottom: 1px solid #222; padding-bottom: 12px;">
+          <span style="color: #777; font-size: 0.8rem;">Heading 2 (Cinzel Medium 28px)</span>
+          <h3 style="font-size: 1.75rem; color: var(--color-gold-light); margin-top: 4px;">AS 13 REGIÕES DE RUNETERRA</h3>
+        </div>
+        <div>
+          <span style="color: #777; font-size: 0.8rem;">Body Default (Inter Regular 15px)</span>
+          <p style="color: var(--color-text-secondary); margin-top: 4px; font-size: 15px;">Desenvolvido propositalmente para o Jovem Aprendiz exercitar a leitura de código semântico e a manutenção de interfaces web profissionais.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COMPONENTES MESTRE (FIGMA COMPONENTS) -->
+    <section class="canvas-section">
+      <h2 class="canvas-title">❖ 3. Componentes Mestre (Master Components & Variants)</h2>
+      
+      <!-- Variantes de Cards -->
+      <h3 style="font-size: 1.1rem; color: var(--color-gold-primary); margin-bottom: 16px;">Component: Hextech Card (Variants)</h3>
+      <div style="display: grid; grid-template-columns: 280px 380px 1fr; gap: 24px; align-items: start; margin-bottom: 40px;">
+        
+        <!-- Variant: Champion -->
+        <div>
+          <span style="display: block; font-size: 0.8rem; color: #777; margin-bottom: 8px;">Variant = Champion</span>
+          <article class="hextech-card card--champion" style="height: 380px;">
+            <div class="champion-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg" alt="Ahri" class="champion-img" />
+              <div class="champion-overlay">
+                <div class="champion-badges">
+                  <span class="badge badge-role">Mago</span>
+                  <span class="badge badge-region">Ionia</span>
+                </div>
+                <h3 class="champion-name">Ahri</h3>
+                <p class="champion-title">A Raposa de Nove Caudas</p>
+                <span class="champion-meta">Lançado em 2011</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Variant: Region -->
+        <div>
+          <span style="display: block; font-size: 0.8rem; color: #777; margin-bottom: 8px;">Variant = Region</span>
+          <article class="hextech-card card--region" style="height: 380px;">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="Demacia" class="region-img" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Demacia</h3>
+              <p class="region-motto">"Justiça e Honra"</p>
+              <p class="region-desc">Reino de petricita e tradição militar com sólida história de defesa contra magias perigosas.</p>
+              <div class="region-icons">Garen, Lux, Jarvan IV</div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Variant: GameMode -->
+        <div>
+          <span style="display: block; font-size: 0.8rem; color: #777; margin-bottom: 8px;">Variant = GameMode</span>
+          <article class="hextech-card card--mode" style="grid-template-columns: 200px 1fr; height: 380px;">
+            <div class="mode-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ryze_0.jpg" alt="Summoner's Rift" class="mode-img" />
+            </div>
+            <div class="mode-body">
+              <span class="badge badge-status-active mode-status">MODO PERMANENTE</span>
+              <h3 style="font-size: 1.35rem; color: var(--color-gold-light); margin-bottom: 6px;">Summoner's Rift</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text-secondary); margin-bottom: 12px;">Confronto clássico 5v5 em três rotas com objetivos de selva.</p>
+              <span style="font-size: 0.8rem; color: var(--color-magic-cyan);">Tempo médio: 30 min</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <!-- Component: Buttons & Pills -->
+      <h3 style="font-size: 1.1rem; color: var(--color-gold-primary); margin-bottom: 16px;">Component: Buttons & Filter Pills</h3>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <button class="btn-hextech btn-hextech-primary">Botão Primário</button>
+        <button class="btn-hextech btn-hextech-secondary">Botão Secundário</button>
+        <button class="filter-pill active">Filtro Ativo</button>
+        <button class="filter-pill">Filtro Inativo</button>
+        <span class="badge badge-role">Badge Role</span>
+        <span class="badge badge-region">Badge Região</span>
+      </div>
+    </section>
+
+    <!-- 4. AS 6 TELAS / ARTBOARDS -->
+    <section class="canvas-section">
+      <h2 class="canvas-title">❖ 4. Telas do Projeto (Desktop 1440px Frames)</h2>
+      <p style="color: #999; margin-bottom: 24px;">Clique em qualquer tela abaixo para abrir a página completa funcionando no navegador:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px;">
+        
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 01</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">01_Home (Início)</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Hero Carousel, Faixa KPI (160+ Campeões, 15+ Anos), Split Section 2009 e Destaques.</p>
+          <a href="../index.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 01</a>
+        </div>
+
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 02</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">02_Linha_do_Tempo</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Trilha cronológica vertical alternada de 2009 aos dias atuais.</p>
+          <a href="../timeline.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 02</a>
+        </div>
+
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 03</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">03_Regioes</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Grid panorâmico com as 10 principais regiões e seus conflitos históricos.</p>
+          <a href="../regions.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 03</a>
+        </div>
+
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 04</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">04_Campeoes</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Catálogo dinâmico com 30 campeões, barra de busca e filtros de classe.</p>
+          <a href="../champions.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 04</a>
+        </div>
+
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 05</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">05_Modos_de_Jogo</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Summoner's Rift, ARAM, Arena 2v2 e memorial do Twisted Treeline 3v3.</p>
+          <a href="../modes.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 05</a>
+        </div>
+
+        <div class="frame-preview-card">
+          <div class="frame-meta">
+            <span>FRAME 06</span>
+            <span>1440 × AUTO</span>
+          </div>
+          <h3 style="color: var(--color-gold-light);">06_Contato_Suporte</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary);">Formulário de contato com validação e FAQ sanfona acessível com 6 itens.</p>
+          <a href="../contact.html" class="btn-hextech btn-hextech-secondary" style="font-size: 0.8rem; padding: 8px;">Abrir Tela 06</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

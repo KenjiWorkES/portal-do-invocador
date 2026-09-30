@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato & Suporte — Portal do Invocador</title>
+  <meta name="description" content="Central de atendimento e perguntas frequentes do Portal do Invocador. Envie sugestões de marcos históricos ou correções." />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- HEADER HEXTECH -->
+  <header class="header-hextech">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" aria-label="Portal do Invocador Home">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        PORTAL DO INVOCADOR
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="timeline.html" class="nav-link">Linha do Tempo</a>
+        <a href="regions.html" class="nav-link">Regiões</a>
+        <a href="champions.html" class="nav-link">Campeões</a>
+        <a href="modes.html" class="nav-link">Modos de Jogo</a>
+        <a href="contact.html" class="nav-link active">Suporte</a>
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Início</a> / <span>Central de Suporte</span>
+        </div>
+        <h1 class="page-banner-title">CENTRAL DE SUPORTE & CONTATO</h1>
+        <p class="page-banner-desc">Tire suas dúvidas sobre o acervo, sugira novos fatos históricos para a linha do tempo ou envie feedback institucional.</p>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO & INFORMAÇÕES -->
+    <section class="section" aria-labelledby="form-section-title">
+      <div class="container">
+        <div class="contact-layout">
+          
+          <!-- Coluna 1: Formulário com Validação -->
+          <div class="hextech-card" style="padding: 36px;">
+            <h2 id="form-section-title" style="font-size: 1.6rem; color: var(--color-gold-light); margin-bottom: 24px;">ENVIE UMA MENSAGEM AOS ESCRIBAS</h2>
+            
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Nome do Invocador</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Ex: Lucas Invocador" required />
+                <span class="form-feedback">Por favor, informe seu nome (mínimo de 3 caracteres).</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">E-mail de Contato</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="invocador@exemplo.com" required />
+                <span class="form-feedback">Informe um endereço de e-mail válido.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Motivo do Contato</label>
+                <select id="contact-subject" class="form-control" required>
+                  <option value="" disabled selected>Selecione um assunto...</option>
+                  <option value="sugestao">Sugestão de Marco Histórico</option>
+                  <option value="correcao">Correção de Dados ou Lore</option>
+                  <option value="aprendiz">Dúvida sobre o Projeto Pedagógico</option>
+                  <option value="outro">Outro Assunto</option>
+                </select>
+                <span class="form-feedback">Selecione uma opção da lista.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Mensagem ou Sugestão</label>
+                <textarea id="contact-message" class="form-control" placeholder="Descreva sua mensagem ou detalhe o evento histórico..." required></textarea>
+                <span class="form-feedback">Sua mensagem deve conter no mínimo 10 caracteres.</span>
+              </div>
+
+              <button type="submit" class="btn-hextech btn-hextech-primary" style="width: 100%;">Transmitir Mensagem</button>
+
+              <!-- Toast de Confirmação -->
+              <div id="toast-success" class="toast-success" role="alert">
+                <strong style="color: var(--color-success); display: block; margin-bottom: 4px;">Mensagem Enviada com Sucesso!</strong>
+                <span>Seus dados foram validados e recebidos pelos escribas do Portal do Invocador.</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Coluna 2: Informações Institucionais -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="hextech-card" style="padding: 30px;">
+              <h3 style="color: var(--color-gold-light); margin-bottom: 12px;">Sobre a Curadoria</h3>
+              <p style="font-size: 0.92rem; color: var(--color-text-secondary); margin-bottom: 16px;">O Portal do Invocador foi idealizado como uma homenagem ao ecossistema da Riot Games e como um ambiente fértil de aprendizado prático para novos desenvolvedores.</p>
+              <div style="font-size: 0.85rem; color: var(--color-gold-primary);">Ambiente de Desenvolvimento: HTML5 + CSS3 + Vanilla JS sem dependências externas.</div>
+            </div>
+
+            <div class="hextech-card" style="padding: 30px;">
+              <h3 style="color: var(--color-gold-light); margin-bottom: 12px;">Desafios de Manutenção</h3>
+              <p style="font-size: 0.92rem; color: var(--color-text-secondary); margin-bottom: 12px;">Projetado intencionalmente para que o jovem aprendiz possa exercitar:</p>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--color-text-muted);">
+                <li>✓ Adição do 31º campeão no <code>data/champions.json</code></li>
+                <li>✓ Ajuste de cores de tokens em <code>css/theme.css</code></li>
+                <li>✓ Inclusão de novas perguntas no FAQ sanfona</li>
+                <li>✓ Reforço de regras de responsividade</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SANFONA (ACCORDION) -->
+    <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-gold-dark);" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-title" class="section-title">PERGUNTAS FREQUENTES</h2>
+          <p class="section-subtitle">Dúvidas comuns sobre o acervo histórico, funcionamento do catálogo e propósito educativo.</p>
+        </div>
+
+        <div class="faq-list">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button class="faq-header" aria-expanded="true">
+              <span>1. O que é o Portal do Invocador?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>O Portal do Invocador é um site institucional fictício desenvolvido para contar a história e a mitologia de League of Legends desde 2009, além de servir como campo prático para treinamento e capacitação de jovens profissionais em manutenção web.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>2. Como a lista de 30 campeões foi selecionada?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>Selecionamos 30 heróis representativos abrangendo todas as 6 classes de jogo (Assassinos, Lutadores, Magos, Atiradores, Suportes e Tanques), diferentes regiões de Runeterra e diferentes épocas de lançamento — dos pioneiros de 2009 aos lançamentos modernos de 2024.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>3. Este site é afiliado à Riot Games?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>Não. Este é um projeto fictício, comunitário e com fins estritamente pedagógicos. League of Legends e todos os ativos visuais relacionados são propriedades intelectuais registradas da Riot Games, Inc.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>4. Com que frequência a linha do tempo é atualizada?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>A linha do tempo pode ser expandida a qualquer momento! Uma das propostas práticas de manutenção é justamente permitir que novos marcos (como grandes finais de mundiais ou novas séries) sejam incluídos na marcação HTML.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>5. Como o jovem aprendiz pode usar este site para aprender?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>O projeto foi construído propositalmente sem frameworks complexos de build para que o aprendiz possa ler código HTML semântico limpo, entender como o CSS organiza variáveis de design tokens, e praticar tarefas reais como manipular objetos JSON, adicionar cards e criar validações no DOM.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>6. Quais tecnologias foram utilizadas para criar este portal?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>Utilizamos HTML5 semântico, CSS3 com variáveis nativas (Design Tokens), flexbox, grid e Vanilla JavaScript (ES6+), consumindo imagens oficiais diretamente do CDN Data Dragon da Riot Games.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER HEXTECH -->
+  <footer class="footer-hextech">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-col-title">PORTAL DO INVOCADOR</h3>
+          <p style="font-size: 0.9rem; max-width: 420px; margin-bottom: 16px;">Projeto fictício de acervo comemorativo e educativo dedicado a registrar a história de League of Legends e proporcionar experiência prática de manutenção web.</p>
+          <span style="font-size: 0.8rem; color: var(--color-magic-cyan);">Desenvolvido para treinamento e capacitação de Jovem Aprendiz.</span>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">MAPA DO SITE</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="timeline.html">Linha do Tempo</a></li>
+            <li><a href="regions.html">Regiões de Runeterra</a></li>
+            <li><a href="champions.html">Catálogo de Campeões</a></li>
+            <li><a href="modes.html">Modos de Jogo</a></li>
+            <li><a href="contact.html">Contato & Suporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">RECURSOS OFICIAIS</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Site Oficial LoL</a></li>
+            <li><a href="https://universe.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Universo Runeterra</a></li>
+            <li><a href="https://lolesports.com" target="_blank" rel="noopener noreferrer">LoL Esports</a></li>
+            <li><a href="https://www.riotgames.com" target="_blank" rel="noopener noreferrer">Riot Games</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Portal do Invocador. Projeto didático de fãs.</span>
+        <span>League of Legends e Riot Games são marcas registradas da Riot Games, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

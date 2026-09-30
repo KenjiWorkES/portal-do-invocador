@@ -1,0 +1,175 @@
+/* ==========================================================================
+   PORTAL DO INVOCADOR — DESIGN SYSTEM TOKENS & RESET (THEME.CSS)
+   Inspirado na identidade oficial Hextech / Runeterra Dark Fantasy
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Cores de Fundo e Superfície */
+  --color-abyss: #040911;
+  --color-surface: #0A1428;
+  --color-surface-hover: #0F1D38;
+  --color-surface-card: #091428;
+
+  /* Ouro Hextech & Metais Nobres */
+  --color-gold-primary: #C8AA6E;
+  --color-gold-light: #F0E6D2;
+  --color-gold-dark: #785A28;
+  --color-gold-muted: #5B4828;
+
+  /* Magia & Energia Hextech */
+  --color-magic-cyan: #0AC8B9;
+  --color-magic-cyan-dim: rgba(10, 200, 185, 0.15);
+
+  /* Hierarquia de Texto */
+  --color-text-primary: #F0E6D2;
+  --color-text-secondary: #A09B8C;
+  --color-text-muted: #9A958A;
+
+  /* Estados de Interface */
+  --color-danger: #E84057;
+  --color-success: #2DEB90;
+
+  /* Tipografia */
+  --font-display: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Sombras & Profundidade Refinadas */
+  --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 10px 24px rgba(0, 0, 0, 0.75);
+  --glow-gold: 0 4px 12px rgba(200, 170, 110, 0.25);
+  --glow-magic: 0 4px 12px rgba(10, 200, 185, 0.2);
+
+  /* Espaçamento e Layout */
+  --container-max-width: 1200px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset Universal & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-abyss);
+  color: var(--color-text-secondary);
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.55;
+  background-color: var(--color-abyss);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(10, 200, 185, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(200, 170, 110, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--color-text-secondary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Superfícies do Navegador Tematizadas (Craft Floor) */
+::selection {
+  background-color: var(--color-gold-primary);
+  color: var(--color-abyss);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-abyss);
+  border-left: 1px solid rgba(120, 90, 40, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-abyss);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-magic-cyan);
+  outline-offset: 3px;
+}
+
+/* Hierarquia Tipográfica */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 70ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utilitários de Layout */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  color: var(--color-gold-light);
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, var(--color-gold-primary), transparent);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}

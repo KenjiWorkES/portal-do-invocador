@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Campeões — Portal do Invocador</title>
+  <meta name="description" content="Explore o catálogo interativo com 30 campeões de League of Legends, filtrando por classes, regiões e anos de lançamento." />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- HEADER HEXTECH -->
+  <header class="header-hextech">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" aria-label="Portal do Invocador Home">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        PORTAL DO INVOCADOR
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="timeline.html" class="nav-link">Linha do Tempo</a>
+        <a href="regions.html" class="nav-link">Regiões</a>
+        <a href="champions.html" class="nav-link active">Campeões</a>
+        <a href="modes.html" class="nav-link">Modos de Jogo</a>
+        <a href="contact.html" class="nav-link">Suporte</a>
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Início</a> / <span>Panteão de Heróis</span>
+        </div>
+        <h1 class="page-banner-title">O PANTEÃO DOS CAMPEÕES</h1>
+        <p class="page-banner-desc">Dos pioneiros de 2009 aos recém-chegados em 2024. Filtre por função de combate ou pesquise pelo seu herói favorito.</p>
+      </div>
+    </section>
+
+    <!-- ÁREA DE CATÁLOGO & FILTROS -->
+    <section class="section" aria-label="Catálogo de Heróis">
+      <div class="container">
+        
+        <div class="catalog-controls">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <!-- Campo de Busca -->
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"></line>
+              </svg>
+              <input type="text" id="champion-search" class="search-input" placeholder="Buscar por campeão, título ou região..." aria-label="Buscar campeão" />
+            </div>
+
+            <!-- Contador de Resultados -->
+            <div id="champions-count" style="font-family: var(--font-body); font-size: 0.9rem; color: var(--color-magic-cyan); font-weight: 600;">
+              Carregando campeões...
+            </div>
+          </div>
+
+          <!-- Filtros de Classe (Pills) -->
+          <div class="filter-pills" role="toolbar" aria-label="Filtrar por classe">
+            <button class="filter-pill active" data-role="all">Todos</button>
+            <button class="filter-pill" data-role="Assassino">Assassinos</button>
+            <button class="filter-pill" data-role="Lutador">Lutadores</button>
+            <button class="filter-pill" data-role="Mago">Magos</button>
+            <button class="filter-pill" data-role="Atirador">Atiradores</button>
+            <button class="filter-pill" data-role="Suporte">Suportes</button>
+            <button class="filter-pill" data-role="Tanque">Tanques</button>
+          </div>
+        </div>
+
+        <!-- GRID DINÂMICO DE CAMPEÕES -->
+        <div id="champions-grid" class="champions-grid" aria-live="polite">
+          <!-- Renderizado via JavaScript a partir de data/champions.json -->
+        </div>
+
+        <!-- EMPTY STATE (CASO NÃO ENCONTRE NADA) -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <svg style="width: 48px; height: 48px; fill: var(--color-gold-dark); margin: 0 auto 16px;" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          <h3>Nenhum campeão encontrado</h3>
+          <p>Tente ajustar os termos da sua pesquisa ou selecione outra classe de filtro.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER HEXTECH -->
+  <footer class="footer-hextech">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-col-title">PORTAL DO INVOCADOR</h3>
+          <p style="font-size: 0.9rem; max-width: 420px; margin-bottom: 16px;">Projeto fictício de acervo comemorativo e educativo dedicado a registrar a história de League of Legends e proporcionar experiência prática de manutenção web.</p>
+          <span style="font-size: 0.8rem; color: var(--color-magic-cyan);">Desenvolvido para treinamento e capacitação de Jovem Aprendiz.</span>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">MAPA DO SITE</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="timeline.html">Linha do Tempo</a></li>
+            <li><a href="regions.html">Regiões de Runeterra</a></li>
+            <li><a href="champions.html">Catálogo de Campeões</a></li>
+            <li><a href="modes.html">Modos de Jogo</a></li>
+            <li><a href="contact.html">Contato & Suporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">RECURSOS OFICIAIS</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Site Oficial LoL</a></li>
+            <li><a href="https://universe.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Universo Runeterra</a></li>
+            <li><a href="https://lolesports.com" target="_blank" rel="noopener noreferrer">LoL Esports</a></li>
+            <li><a href="https://www.riotgames.com" target="_blank" rel="noopener noreferrer">Riot Games</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Portal do Invocador. Projeto didático de fãs.</span>
+        <span>League of Legends e Riot Games são marcas registradas da Riot Games, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/champions.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modos de Jogo — Portal do Invocador</title>
+  <meta name="description" content="Conheça os campos de batalha de League of Legends: Summoner's Rift, ARAM, Arena 2v2 e modos históricos do acervo." />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- HEADER HEXTECH -->
+  <header class="header-hextech">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" aria-label="Portal do Invocador Home">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        PORTAL DO INVOCADOR
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="timeline.html" class="nav-link">Linha do Tempo</a>
+        <a href="regions.html" class="nav-link">Regiões</a>
+        <a href="champions.html" class="nav-link">Campeões</a>
+        <a href="modes.html" class="nav-link active">Modos de Jogo</a>
+        <a href="contact.html" class="nav-link">Suporte</a>
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Início</a> / <span>Campos de Batalha</span>
+        </div>
+        <h1 class="page-banner-title">MODOS DE JOGO & ARENAS</h1>
+        <p class="page-banner-desc">Das batalhas estratégicas 5v5 nos três caminhos clássicos ao caos veloz das rotas únicas e arenas em duplas.</p>
+      </div>
+    </section>
+
+    <!-- MODOS PERMANENTES -->
+    <section class="section" aria-labelledby="modos-principais-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="modos-principais-title" class="section-title">MODOS PERMANENTES</h2>
+          <p class="section-subtitle">As duas experiências centrais que definem as partidas ranqueadas e o combate casual diário.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <!-- Summoner's Rift -->
+          <article class="hextech-card card--mode">
+            <div class="mode-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ryze_0.jpg" alt="Summoner's Rift" class="mode-img" loading="lazy" />
+            </div>
+            <div class="mode-body">
+              <span class="badge badge-status-active mode-status">MODO PERMANENTE • COMPETITIVO</span>
+              <h3 style="font-size: 1.75rem; color: var(--color-gold-light); margin-bottom: 8px;">Summoner's Rift (5v5)</h3>
+              <p style="color: var(--color-text-secondary); margin-bottom: 16px;">O coração pulsante de League of Legends e o padrão oficial de todos os torneios mundiais. Duas equipes de cinco jogadores competem em um mapa simétrico com três rotas (Topo, Meio e Inferior), selva neutra com monstros épicos e um objetivo final: destruir o Nexus adversário.</p>
+              <div style="font-size: 0.85rem; color: var(--color-magic-cyan);">Tempo médio: 25 a 35 min • Mapa: Summoner's Rift • Foco: Macroestratégia e Visão</div>
+            </div>
+          </article>
+
+          <!-- ARAM -->
+          <article class="hextech-card card--mode">
+            <div class="mode-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Braum_0.jpg" alt="Howling Abyss - ARAM" class="mode-img" loading="lazy" />
+            </div>
+            <div class="mode-body">
+              <span class="badge badge-status-active mode-status">MODO PERMANENTE • CASUAL</span>
+              <h3 style="font-size: 1.75rem; color: var(--color-gold-light); margin-bottom: 8px;">ARAM — Howling Abyss (5v5)</h3>
+              <p style="color: var(--color-text-secondary); margin-bottom: 16px;">Nascido originalmente como uma partida personalizada criada pela própria comunidade ("All Random, All Mid"), o modo foi oficializado pela Riot em 2012 na ponte congelada de Howling Abyss. Não há retorno à base para curar: você só pode comprar itens ao renascer!</p>
+              <div style="font-size: 0.85rem; color: var(--color-magic-cyan);">Tempo médio: 15 a 20 min • Mapa: Howling Abyss • Foco: Lutas de Equipe Contínuas</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTA DE OBJETIVOS ESTRATÉGICOS -->
+    <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-gold-dark);" aria-labelledby="objetivos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="objetivos-title" class="section-title">OBJETIVOS NEUTROS</h2>
+          <p class="section-subtitle">O controle do mapa é decidido pela disputa de monstros lendários e estruturas ancestrais.</p>
+        </div>
+
+        <div class="champions-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="hextech-card" style="padding: 24px;">
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">Barão Na'Shor</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">O predador mais temível do rio. Abatê-lo concede o 'Mão do Barão', empoderando as tropas aliadas para quebrar a defesa das bases inimigas.</p>
+          </div>
+
+          <div class="hextech-card" style="padding: 24px;">
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">Dragões Elementais</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">Dragões do Fogo, Terra, Água, Ar, Hextech e Quimtec concedem acúmulos permanentes de atributos e a cobiçada Alma do Dragão para a equipe vitoriosa.</p>
+          </div>
+
+          <div class="hextech-card" style="padding: 24px;">
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">Torres e Inibidores</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">Estruturas de defesa mágica que barram o avanço. Destruir um inibidor liberta Supertropas avassaladoras naquela rota por vários minutos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODOS ROTATIVOS E MEMORIAL LEGADO -->
+    <section class="section" aria-labelledby="legado-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="legado-title" class="section-title">ESPECIAIS & MEMORIAL LEGADO</h2>
+          <p class="section-subtitle">Modos experimentais e campos de batalha que marcaram a memória dos antigos invocadores.</p>
+        </div>
+
+        <div class="champions-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <article class="hextech-card" style="padding: 24px;">
+            <span class="badge badge-status-rotating" style="margin-bottom: 12px; display: inline-block;">MODO ROTATIVO / SAZONAL</span>
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">Arena (2v2v2v2)</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">Quatro duplas enfrentam-se em rodadas rápidas de combate com cartas de Aprimoramentos Mágicos que mudam radicalmente o estilo de jogo.</p>
+          </article>
+
+          <article class="hextech-card" style="padding: 24px;">
+            <span class="badge badge-status-rotating" style="margin-bottom: 12px; display: inline-block;">MODO ROTATIVO</span>
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">URF (Ultra Rápido)</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">Com 80% de aceleração de habilidade, custo zero de mana e velocidade absurda, o modo URF transformou o Dia da Mentira no evento mais esperado do ano.</p>
+          </article>
+
+          <article class="hextech-card" style="padding: 24px;">
+            <span class="badge badge-status-legacy" style="margin-bottom: 12px; display: inline-block;">MEMORIAL LEGADO (2009-2019)</span>
+            <h3 style="color: var(--color-gold-light); margin-bottom: 8px;">Twisted Treeline (3v3)</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary);">A lendária Selva Retorcida oferecia confrontos táticos de três contra três com altares misteriosos e a temida aranha Vilemaw no covil central.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER HEXTECH -->
+  <footer class="footer-hextech">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-col-title">PORTAL DO INVOCADOR</h3>
+          <p style="font-size: 0.9rem; max-width: 420px; margin-bottom: 16px;">Projeto fictício de acervo comemorativo e educativo dedicado a registrar a história de League of Legends e proporcionar experiência prática de manutenção web.</p>
+          <span style="font-size: 0.8rem; color: var(--color-magic-cyan);">Desenvolvido para treinamento e capacitação de Jovem Aprendiz.</span>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">MAPA DO SITE</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="timeline.html">Linha do Tempo</a></li>
+            <li><a href="regions.html">Regiões de Runeterra</a></li>
+            <li><a href="champions.html">Catálogo de Campeões</a></li>
+            <li><a href="modes.html">Modos de Jogo</a></li>
+            <li><a href="contact.html">Contato & Suporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">RECURSOS OFICIAIS</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Site Oficial LoL</a></li>
+            <li><a href="https://universe.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Universo Runeterra</a></li>
+            <li><a href="https://lolesports.com" target="_blank" rel="noopener noreferrer">LoL Esports</a></li>
+            <li><a href="https://www.riotgames.com" target="_blank" rel="noopener noreferrer">Riot Games</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Portal do Invocador. Projeto didático de fãs.</span>
+        <span>League of Legends e Riot Games são marcas registradas da Riot Games, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regiões de Runeterra — Portal do Invocador</title>
+  <meta name="description" content="Explore os reinos, povos e facções do continente de Runeterra, de Demacia e Noxus a Ionia e Piltover." />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- HEADER HEXTECH -->
+  <header class="header-hextech">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo" aria-label="Portal do Invocador Home">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        PORTAL DO INVOCADOR
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="timeline.html" class="nav-link">Linha do Tempo</a>
+        <a href="regions.html" class="nav-link active">Regiões</a>
+        <a href="champions.html" class="nav-link">Campeões</a>
+        <a href="modes.html" class="nav-link">Modos de Jogo</a>
+        <a href="contact.html" class="nav-link">Suporte</a>
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Início</a> / <span>Regiões de Runeterra</span>
+        </div>
+        <h1 class="page-banner-title">TERRITÓRIOS & FACÇÕES</h1>
+        <p class="page-banner-desc">Cada região de Runeterra possui sua própria filosofia, perigos e linhagens lendárias. Conheça as terras que moldam o destino deste mundo.</p>
+      </div>
+    </section>
+
+    <!-- GRID DE REGIÕES -->
+    <section class="section" aria-labelledby="regioes-grid-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="regioes-grid-title" class="section-title">AS 10 PRINCIPAIS REGIÕES</h2>
+          <p class="section-subtitle">Do isolacionismo de petricita de Demacia à tecnologia a vapor de Zaun, mergulhe nas culturas que compõem o universo do jogo.</p>
+        </div>
+
+        <div class="champions-grid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));">
+          
+          <!-- Demacia -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="Demacia" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Demacia</h3>
+              <p class="region-motto">"Justiça, Honra e Tradição"</p>
+              <p class="region-desc">Um reino brilhante com uma sólida tradição militar e muralhas de petricita que repelem a magia, fundado como refúgio das Guerras Rúnicas.</p>
+              <div class="region-icons">Campeões notáveis: Garen, Lux, Jarvan IV, Vayne</div>
+            </div>
+          </article>
+
+          <!-- Noxus -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Darius_0.jpg" alt="Noxus" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Noxus</h3>
+              <p class="region-motto">"Força, Ambição e Conquista"</p>
+              <p class="region-desc">Um império expansionista temido e brutal, onde a linhagem nobre nada importa: qualquer um que prove sua força e competência pode alcançar o topo do poder.</p>
+              <div class="region-icons">Campeões notáveis: Darius, Swain, Katarina, Ambessa</div>
+            </div>
+          </article>
+
+          <!-- Ionia -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg" alt="Ionia" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Ionia</h3>
+              <p class="region-motto">"A Terra Primeira e o Equilíbrio Espiritual"</p>
+              <p class="region-desc">Um arquipélago sagrado de beleza sublime onde o reino material e espiritual se tocam, repleto de magias antigas e ordens monásticas ancestrais.</p>
+              <div class="region-icons">Campeões notáveis: Ahri, Yasuo, Lee Sin, Zed, Yone</div>
+            </div>
+          </article>
+
+          <!-- Freljord -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ashe_0.jpg" alt="Freljord" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Freljord</h3>
+              <p class="region-motto">"Sobrevivência Implacável e Gelo Ancestral"</p>
+              <p class="region-desc">Uma terra inóspita e implacável no extremo norte, onde clãs glacinatas e feras colossais lutam pela sobrevivência sob o frio eterno.</p>
+              <div class="region-icons">Campeões notáveis: Ashe, Braum, Sejuani, Lissandra</div>
+            </div>
+          </article>
+
+          <!-- Piltover -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg" alt="Piltover" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Piltover</h3>
+              <p class="region-motto">"A Cidade do Progresso e Inovação Hextech"</p>
+              <p class="region-desc">A joia cultural do comércio e da ciência, onde a invenção da tecnologia Hextech permitiu à humanidade canalizar a magia em máquinas e aparelhos fantásticos.</p>
+              <div class="region-icons">Campeões notáveis: Caitlyn, Jayce, Vi, Ezreal</div>
+            </div>
+          </article>
+
+          <!-- Zaun -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg" alt="Zaun" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Zaun</h3>
+              <p class="region-motto">"A Cidade Baixa, Alquimia e Liberdade"</p>
+              <p class="region-desc">Construída nas galerias e cânions abaixo de Piltover, Zaun é um centro caótico de ciência irrestrita, tecno-química avançada e resiliência pura.</p>
+              <div class="region-icons">Campeões notáveis: Jinx, Ekko, Warwick, Singed</div>
+            </div>
+          </article>
+
+          <!-- Shurima -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Azir_0.jpg" alt="Shurima" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Shurima</h3>
+              <p class="region-motto">"O Império Dourado e os Ascendentes"</p>
+              <p class="region-desc">Um império titânico há muito soterrado sob as areias do deserto, que renasce sob o comando de Azir e o disco solar restaurado.</p>
+              <div class="region-icons">Campeões notáveis: Azir, Nasus, Renekton, K'Sante</div>
+            </div>
+          </article>
+
+          <!-- Ilhas das Sombras -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg" alt="Ilhas das Sombras" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Ilhas das Sombras</h3>
+              <p class="region-motto">"A Névoa Negra e a Morte Eterna"</p>
+              <p class="region-desc">Outrora as abençoadas Ilhas das Bênçãos, o território foi corrompido por um cataclismo mágico que condenou todas as almas a um tormento infinito.</p>
+              <div class="region-icons">Campeões notáveis: Thresh, Viego, Hecarim, Kalista</div>
+            </div>
+          </article>
+
+          <!-- Monte Targon -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg" alt="Monte Targon" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Monte Targon</h3>
+              <p class="region-motto">"O Pico Celestial e as Estrelas"</p>
+              <p class="region-desc">A montanha mais imponente de Runeterra, onde os escaladores mais obstinados buscam tocar o reino cósmico e se tornar avatares divinos dos Aspectos celestiais.</p>
+              <div class="region-icons">Campeões notáveis: Pantheon, Leona, Diana, Taric</div>
+            </div>
+          </article>
+
+          <!-- Águas de Sentina -->
+          <article class="hextech-card card--region">
+            <div class="region-media">
+              <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pyke_0.jpg" alt="Águas de Sentina" class="region-img" loading="lazy" />
+            </div>
+            <div class="region-body">
+              <h3 class="region-title">Águas de Sentina</h3>
+              <p class="region-motto">"Corsários, Monstros Marinhos e Caos"</p>
+              <p class="region-desc">Uma cidade portuária anárquica nas Ilhas da Serpente, lar de contrabandistas, frotas piratas e corajosos arpoadores de monstros das profundezas.</p>
+              <div class="region-icons">Campeões notáveis: Pyke, Miss Fortune, Gangplank, Illaoi</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE CONFLITOS ÉPICOS -->
+    <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-gold-dark);" aria-labelledby="conflitos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="conflitos-title" class="section-title">CONFLITOS DETERMINANTES</h2>
+          <p class="section-subtitle">As grandes guerras que reescreveram as fronteiras e moldaram os campeões que lutam em Summoner's Rift.</p>
+        </div>
+
+        <div class="split-section">
+          <div class="split-content">
+            <h3>A Invasão Noxiana de Ionia</h3>
+            <p>Um dos momentos mais dramáticos da história recente de Runeterra foi a invasão brutal lançada pelo império de Noxus contra as ilhas pacíficas de Ionia. O conflito forçou os povos da Terra Primeira a abandonarem sua tradição pacifista para empunhar armas sombrias e magia de guerra.</p>
+            <p>O resultado da guerra dividiu o próprio povo jônio: ordens tradicionais que prezam pela restauração do equilíbrio contra novos guerreiros radicais dispostos a qualquer sacrifício pela proteção de sua terra.</p>
+          </div>
+          <div class="split-content">
+            <h3>As Guerras Rúnicas</h3>
+            <p>O cataclismo primordial que quase destruiu a própria existência de Runeterra. Quando a humanidade descobriu as Runas Globais — artefatos de poder cósmico que moldaram o planeta —, nações inteiras entraram em conflito pelo seu controle absoluto.</p>
+            <p>As cicatrizes deixadas por essa guerra geraram a fundação de reinos como Demacia, que temem e repelem qualquer vestígio de magia descontrolada até os dias de hoje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER HEXTECH -->
+  <footer class="footer-hextech">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-col-title">PORTAL DO INVOCADOR</h3>
+          <p style="font-size: 0.9rem; max-width: 420px; margin-bottom: 16px;">Projeto fictício de acervo comemorativo e educativo dedicado a registrar a história de League of Legends e proporcionar experiência prática de manutenção web.</p>
+          <span style="font-size: 0.8rem; color: var(--color-magic-cyan);">Desenvolvido para treinamento e capacitação de Jovem Aprendiz.</span>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">MAPA DO SITE</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="timeline.html">Linha do Tempo</a></li>
+            <li><a href="regions.html">Regiões de Runeterra</a></li>
+            <li><a href="champions.html">Catálogo de Campeões</a></li>
+            <li><a href="modes.html">Modos de Jogo</a></li>
+            <li><a href="contact.html">Contato & Suporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">RECURSOS OFICIAIS</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Site Oficial LoL</a></li>
+            <li><a href="https://universe.leagueoflegends.com" target="_blank" rel="noopener noreferrer">Universo Runeterra</a></li>
+            <li><a href="https://lolesports.com" target="_blank" rel="noopener noreferrer">LoL Esports</a></li>
+            <li><a href="https://www.riotgames.com" target="_blank" rel="noopener noreferrer">Riot Games</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Portal do Invocador. Projeto didático de fãs.</span>
+        <span>League of Legends e Riot Games são marcas registradas da Riot Games, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
