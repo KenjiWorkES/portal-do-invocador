@@ -43,41 +43,47 @@ O **Portal do Invocador** é um site institucional fictício comemorativo e educ
 
 ```
 portal-do-invocador/
-├── PRODUCT.md                  # Especificação oficial do produto (Impeccable)
-├── DESIGN.md                   # Tokens e regras do Design System Hextech (Impeccable)
-├── CONTEXT.md                  # Este arquivo de contexto consolidado
+├── package.json                  # Scripts (dev, build, preview) e dependência do Vite
+├── package-lock.json             # Trava de dependências npm
+├── vite.config.js                # Configuração do Vite com suporte a Multi-Page App (Rollup inputs)
+├── .gitignore                    # Exclusão de node_modules/ e dist/
 │
-├── index.html                  # 1. Início (Home: Hero Carousel, KPIs, História 2009 e Destaques)
-├── timeline.html               # 2. Linha do Tempo (Trilha histórica vertical de 2009 aos dias atuais)
-├── regions.html                # 3. Regiões (Catálogo das 10 principais regiões e conflitos épicos)
-├── champions.html              # 4. Campeões (Catálogo dinâmico com 30 campeões, busca e filtros)
-├── modes.html                  # 5. Modos de Jogo (Summoner's Rift, ARAM, Arena 2v2 e Twisted Treeline)
-├── contact.html                # 6. Suporte & Contato (Formulário validado e FAQ sanfona acessível)
+├── PRODUCT.md                    # Especificação oficial do produto (Impeccable)
+├── DESIGN.md                     # Tokens e regras do Design System Hextech (Impeccable)
+├── CONTEXT.md                    # Este arquivo de contexto consolidado
 │
-├── data/
-│   └── champions.json          # Banco de dados local com 30 campeões e dados completos
+├── index.html                    # 1. Início (Home: Hero Carousel, KPIs, História 2009 e Destaques)
+├── timeline.html                 # 2. Linha do Tempo (Trilha histórica vertical de 2009 aos dias atuais)
+├── regions.html                  # 3. Regiões (Catálogo das 10 principais regiões e conflitos épicos)
+├── champions.html                # 4. Campeões (Catálogo dinâmico com 30 campeões, busca e filtros)
+├── modes.html                    # 5. Modos de Jogo (Summoner's Rift, ARAM, Arena 2v2 e Twisted Treeline)
+├── contact.html                  # 6. Suporte & Contato (Formulário validado e FAQ sanfona acessível)
 │
-├── css/
-│   ├── theme.css               # Design tokens (cores, tipografia, reset e utilitários)
-│   ├── components.css          # Estilos de navbar, footer, cards, banners, formulários e accordion
-│   └── responsive.css          # Media queries para desktop (1440px), tablet (1024/860px) e mobile (560px)
+├── public/                       # Arquivos estáticos servidos diretamente na raiz pelo Vite
+│   └── data/
+│       └── champions.json        # Banco de dados local com 30 campeões e dados completos
 │
-├── js/
-│   ├── nav.js                  # Controle do menu responsivo e marcação de página ativa
-│   ├── carousel.js             # Lógica de transição, autoplay e controles do Hero Carousel
-│   ├── champions.js            # Fetch de champions.json, render dinâmico, busca e filtros de classe
-│   ├── faq.js                  # Comportamento sanfona com acessibilidade aria-expanded
-│   └── contact.js              # Validação de formulário em tempo real e toast de confirmação
+├── src/                          # Código-fonte processado pelo Vite
+│   ├── css/
+│   │   ├── theme.css             # Design tokens (cores, tipografia, reset e utilitários)
+│   │   ├── components.css        # Estilos de navbar, footer, cards, banners, formulários e accordion
+│   │   └── responsive.css        # Media queries para desktop (1440px), tablet (1024/860px) e mobile (560px)
+│   └── js/
+│       ├── nav.js                # Controle do menu responsivo e marcação de página ativa
+│       ├── carousel.js           # Lógica de transição, autoplay e controles do Hero Carousel
+│       ├── champions.js          # Fetch de /data/champions.json, render dinâmico, busca e filtros de classe
+│       ├── faq.js                # Comportamento sanfona com acessibilidade aria-expanded
+│       └── contact.js            # Validação de formulário em tempo real e toast de confirmação
 │
 ├── figma/
-│   ├── tokens.json             # Tokens de cor, tipografia e espaçamento para Tokens Studio / Figma Variables
-│   ├── FIGMA_GUIDE.md          # Passo a passo para importar tokens e montar os frames no Figma
-│   └── canvas-preview.html     # Visualizador interativo de tokens, componentes mestre e telas
+│   ├── tokens.json               # Tokens de cor, tipografia e espaçamento para Tokens Studio / Figma Variables
+│   ├── FIGMA_GUIDE.md            # Passo a passo para importar tokens e montar os frames no Figma
+│   └── canvas-preview.html       # Visualizador interativo de tokens, componentes mestre e telas
 │
 └── docs/
     └── superpowers/
-        └── specs/
-            └── 2026-09-29-portal-do-invocador-design.md # Especificação arquitetural original aprovada
+        ├── specs/                # Especificações arquiteturais
+        └── plans/                # Planos de implementação
 ```
 
 ---
@@ -136,11 +142,23 @@ Este projeto foi desenhado intencionalmente com pontos óbvios de manutenção d
 
 ## 8. Como Executar o Projeto
 
-Não é necessário instalar nada:
-* **No Navegador:** Basta abrir qualquer arquivo `.html` (por exemplo, `index.html`) diretamente no navegador ou clicar duas vezes nele.
-* **Via Live Server (Recomendado):**
-  ```bash
-  # Usando o utilitário serve do Node.js:
-  npx serve .
-  # Ou usando a extensão Live Server do VS Code / Antigravity IDE
-  ```
+Com a integração do **Vite**, o projeto conta com servidor local com Hot Module Reloading (HMR) e pipeline de build otimizado:
+
+1. **Instalar Dependências:**
+   ```bash
+   npm install
+   ```
+2. **Servidor de Desenvolvimento (com live reload instantâneo):**
+   ```bash
+   npm run dev
+   ```
+   Acesse a URL informada no terminal (geralmente `http://localhost:5173`).
+3. **Build de Produção:**
+   ```bash
+   npm run build
+   ```
+   Gera a pasta `dist/` com todos os 6 HTMLs e assets minificados.
+4. **Visualizar o Build de Produção (Preview):**
+   ```bash
+   npm run preview
+   ```
