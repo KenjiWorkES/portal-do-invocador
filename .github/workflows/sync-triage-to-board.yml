@@ -1,0 +1,139 @@
+name: Project Sync — Triagem (New) -> Quadro Principal (Ready to work)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+  issues:
+    types:
+      - opened
+      - labeled
+      - assigned
+
+jobs:
+  sync-triage:
+    name: Sync Ready Tasks from Triage Board
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync "Ready to work" items from Project #4 (Triagem) to Project #3 (Main Board)
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECTS_PAT || secrets.GITHUB_TOKEN }}
+          script: |
+            const TRIAGE_PROJECT_ID = 'PVT_kwHOBV7NMM4BoT6e'; // Project #4: Portal do Invocador — Triagem
+            const MAIN_PROJECT_ID = 'PVT_kwHOBV7NMM4BoRYt';   // Project #3: Portal do Invocador
+            const MAIN_STATUS_FIELD_ID = 'PVTSSF_lAHOBV7NMM4BoRYtzhmyPdM';
+            const MAIN_READY_OPTION_ID = '71015605';          // "Ready to work" no Project #3
+
+            const query = `
+              query($projectId: ID!) {
+                node(id: $projectId) {
+                  ... on ProjectV2 {
+                    items(first: 100) {
+                      nodes {
+                        id
+                        type
+                        fieldValueByName(name: "Status") {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                            name
+                          }
+                        }
+                        content {
+                          ... on DraftIssue {
+                            id
+                            title
+                            body
+                          }
+                          ... on Issue {
+                            id
+                            number
+                            title
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const result = await github.graphql(query, { projectId: TRIAGE_PROJECT_ID });
+            const items = result?.node?.items?.nodes || [];
+
+            const readyItems = items.filter(
+              item => item.fieldValueByName?.name === 'Ready to work'
+            );
+
+            core.info(`Itens encontrados em "Ready to work" na Triagem: ${readyItems.length}`);
+
+            for (const item of readyItems) {
+              let contentNodeId = item.content?.id;
+              let itemTitle = item.content?.title || 'Task sem título';
+
+              // Se era um rascunho privado (DraftIssue), cria a Issue no repositório ao aprovar para Ready to work
+              if (item.type === 'DRAFT_ISSUE') {
+                const { data: createdIssue } = await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: itemTitle,
+                  body: item.content?.body || ''
+                });
+                contentNodeId = createdIssue.node_id;
+                core.info(`✓ DraftIssue convertida na Issue #${createdIssue.number}: ${itemTitle}`);
+              }
+
+              if (!contentNodeId) continue;
+
+              // Adicionar ao Project #3 (Quadro Principal)
+              const addMutation = `
+                mutation($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                    item {
+                      id
+                    }
+                  }
+                }
+              `;
+              const addRes = await github.graphql(addMutation, {
+                projectId: MAIN_PROJECT_ID,
+                contentId: contentNodeId
+              });
+              const mainItemId = addRes.addProjectV2ItemById.item.id;
+
+              // Definir coluna "Ready to work" no Project #3
+              const statusMutation = `
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId,
+                    value: { singleSelectOptionId: $optionId }
+                  }) {
+                    projectV2Item {
+                      id
+                    }
+                  }
+                }
+              `;
+              await github.graphql(statusMutation, {
+                projectId: MAIN_PROJECT_ID,
+                itemId: mainItemId,
+                fieldId: MAIN_STATUS_FIELD_ID,
+                optionId: MAIN_READY_OPTION_ID
+              });
+
+              // Remover do quadro de Triagem após promover para o Quadro Principal
+              const deleteMutation = `
+                mutation($projectId: ID!, $itemId: ID!) {
+                  deleteProjectV2Item(input: { projectId: $projectId, itemId: $itemId }) {
+                    deletedItemId
+                  }
+                }
+              `;
+              await github.graphql(deleteMutation, {
+                projectId: TRIAGE_PROJECT_ID,
+                itemId: item.id
+              });
+
+              core.info(`✓ Task "${itemTitle}" promovida da Triagem para "Ready to work" no Quadro Principal!`);
+            }
