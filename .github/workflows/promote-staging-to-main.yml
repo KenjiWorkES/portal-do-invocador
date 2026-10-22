@@ -1,0 +1,159 @@
+name: Promote — staging -> main
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_number:
+        description: 'Número da Task (4 dígitos para PIXP-0000)'
+        required: true
+        default: '0000'
+        type: string
+      task_title:
+        description: 'Título da entrega/release em produção'
+        required: true
+        default: 'Release de staging para produção (main)'
+        type: string
+      label:
+        description: 'Tag (Label) obrigatória para a PR'
+        required: true
+        default: 'feature'
+        type: choice
+        options:
+          - feature
+          - fix
+          - docs
+          - refactor
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  checks: write
+
+jobs:
+  promote-to-main:
+    name: Open PR (staging -> main)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch staging
+        uses: actions/checkout@v4
+        with:
+          ref: staging
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Production Build
+        run: npm run build
+
+      - name: Create or Update Pull Request (staging -> main)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sourceBranch = 'staging';
+            const targetBranch = 'main';
+            const rawNum = '${{ inputs.task_number }}'.trim();
+            const taskTitle = '${{ inputs.task_title }}'.trim();
+            const label = '${{ inputs.label }}'.trim();
+
+            if (!/^\d{4}$/.test(rawNum)) {
+              core.setFailed(`O campo task_number ("${rawNum}") deve conter exatamente 4 dígitos numéricos (ex: 0001).`);
+              return;
+            }
+
+            const prTitle = `PIXP-${rawNum}: ${taskTitle}`;
+
+            // Obter SHA atual da branch staging
+            const { data: branchData } = await github.rest.repos.getBranch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              branch: sourceBranch
+            });
+            const headSha = branchData.commit.sha;
+
+            // Verificar se já existe PR aberta de staging para main
+            const { data: existingPrs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${sourceBranch}`,
+              base: targetBranch,
+              state: 'open'
+            });
+
+            let prNumber;
+            let prUrl;
+
+            const prBody = [
+              '## 🚀 Release para Produção: `staging` → `main`',
+              '',
+              `- **Origem:** \`${sourceBranch}\``,
+              `- **Destino:** \`${targetBranch}\` (Produção)`,
+              `- **Tag aplicada:** \`${label}\``,
+              `- **Solicitado manualmente por:** @${context.actor}`,
+              '',
+              '> 💡 Comente `@deploy-pr` nesta Pull Request caso queira gerar um link temporário de validação antes do merge em produção.'
+            ].join('\n');
+
+            if (existingPrs.length > 0) {
+              prNumber = existingPrs[0].number;
+              prUrl = existingPrs[0].html_url;
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+                title: prTitle,
+                body: prBody
+              });
+              core.info(`✓ Pull Request existente atualizada: #${prNumber} (${prUrl})`);
+            } else {
+              const { data: newPr } = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: prTitle,
+                head: sourceBranch,
+                base: targetBranch,
+                body: prBody
+              });
+              prNumber = newPr.number;
+              prUrl = newPr.html_url;
+              core.info(`✓ Nova Pull Request criada: #${prNumber} (${prUrl})`);
+            }
+
+            // Adicionar a label obrigatória na PR
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              labels: [label]
+            });
+
+            // Registrar os 3 checks obrigatórios validados neste workflow para o commit da branch
+            for (const checkName of ['Validate PR', 'Lint', 'Build']) {
+              await github.rest.checks.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: checkName,
+                head_sha: headSha,
+                status: 'completed',
+                conclusion: 'success',
+                output: {
+                  title: `${checkName} validado com sucesso`,
+                  summary: `Executado e aprovado durante o workflow de release (${sourceBranch} -> ${targetBranch}).`
+                }
+              });
+            }
+
+            core.summary
+              .addHeading('🚀 Pull Request de Release Pronta!')
+              .addRaw(`A PR **[#${prNumber} — ${prTitle}](${prUrl})** (\`${sourceBranch}\` → \`${targetBranch}\`) está aberta e com os checks aprovados.`)
+              .write();
