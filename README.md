@@ -109,3 +109,10 @@ portal-do-invocador/
 | **Pré-Deploy (Staging)** | `staging` | [https://staging-portal-do-invocador.vercel.app/](https://staging-portal-do-invocador.vercel.app/) | Homologação e validação pré-release |
 | **Desenvolvimento** | `develop` | [https://develop-portal-do-invocador.vercel.app/](https://develop-portal-do-invocador.vercel.app/) | Integração contínua de novas funcionalidades |
 
+---
+
+## Design & Protótipo (Figma)
+
+- **Arquivo no Figma:** [Portal do Invocador — Design System & Telas](https://www.figma.com/design/tflksBAGmcZSgKw2lCCvc1/Portal-do-Invocador?node-id=2-2126&t=P6S6nilkxfllTv2l-0)
+
+
