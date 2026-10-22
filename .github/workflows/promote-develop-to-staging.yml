@@ -94,14 +94,30 @@ jobs:
             let prUrl;
 
             const prBody = [
-              '## 📦 Promoção de Ambiente: `develop` → `staging`',
+              '## 📝 Descrição da Task',
               '',
-              `- **Origem:** \`${sourceBranch}\``,
-              `- **Destino:** \`${targetBranch}\``,
+              `- ${taskTitle} (\`${sourceBranch}\` → \`${targetBranch}\`)`,
               `- **Tag aplicada:** \`${label}\``,
               `- **Solicitado manualmente por:** @${context.actor}`,
               '',
-              '> 💡 Comente `@deploy-pr` nesta Pull Request caso queira gerar um link temporário de validação antes do merge.'
+              '---',
+              '',
+              '## 🔗 Link da Task',
+              '',
+              `- **Task / Project:** [PIXP-${rawNum}](https://github.com/users/KenjiWorkES/projects/3)`,
+              '',
+              '---',
+              '',
+              '## 🚀 Como Rodar o Deploy Temporário da PR',
+              '',
+              'O check **`Deploy PR Preview`** inicia como pendente e é **obrigatório** para liberar o merge desta Pull Request. Para gerar o ambiente temporário na Vercel:',
+              '',
+              '1. Vá até a caixa de comentários desta Pull Request logo abaixo.',
+              '2. Envie um comentário contendo exatamente o comando:',
+              '   ```text',
+              '   @deploy-pr',
+              '   ```',
+              '3. Aguarde alguns segundos: a Action reagirá com um 🚀 ao seu comentário, fará o build da branch na Vercel e responderá aqui mesmo com o **link temporário de Preview**, marcando o check **`Deploy PR Preview`** como concluído (`✅`).'
             ].join('\n');
 
             if (existingPrs.length > 0) {
