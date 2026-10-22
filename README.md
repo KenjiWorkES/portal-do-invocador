@@ -101,8 +101,11 @@ portal-do-invocador/
 
 ---
 
-## Fluxo de Branches
+## Ambientes e Fluxo de Branches (Vercel)
 
-- `main`: Branch principal com o código estável de produção.
-- `staging`: Branch de pré-deploy e homologação para validação antes de ir para produção.
-- `develop`: Branch central de desenvolvimento para integração de novas funcionalidades e melhorias.
+| Ambiente | Branch | URL (Vercel) | Finalidade |
+| :--- | :--- | :--- | :--- |
+| **Produção** | `main` | [https://portal-do-invocador.vercel.app/](https://portal-do-invocador.vercel.app/) | Código principal e estável em produção |
+| **Pré-Deploy (Staging)** | `staging` | [https://staging-portal-do-invocador.vercel.app/](https://staging-portal-do-invocador.vercel.app/) | Homologação e validação pré-release |
+| **Desenvolvimento** | `develop` | [https://develop-portal-do-invocador.vercel.app/](https://develop-portal-do-invocador.vercel.app/) | Integração contínua de novas funcionalidades |
+
