@@ -1,0 +1,67 @@
+name: PR Self-Approval — Exclusive for Owner (@approve)
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  owner-approve:
+    name: Process PR Approval (@approve)
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '@approve')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Reviewer Identity and Approve PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ALLOWED_SELF_APPROVER = 'KenjiWorkES';
+            const commenter = context.payload.comment.user.login;
+            const prNumber = context.issue.number;
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+
+            // Apenas KenjiWorkES pode usar @approve para aprovar suas próprias PRs
+            if (commenter !== ALLOWED_SELF_APPROVER) {
+              await github.rest.reactions.createForIssueComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: context.payload.comment.id,
+                content: '-1'
+              });
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: `⛔ **Auto-aprovação negada para @${commenter}:** apenas \`@${ALLOWED_SELF_APPROVER}\` possui permissão para aprovar suas próprias Pull Requests. Todos os demais desenvolvedores precisam da aprovação de outro desenvolvedor na aba **Files changed → Review changes → Approve**.`
+              });
+
+              core.setFailed(`Usuário @${commenter} não possui permissão para auto-aprovar PRs.`);
+              return;
+            }
+
+            // Reagir positivamente e registrar a aprovação oficial na PR para KenjiWorkES
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: '+1'
+            });
+
+            await github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              commit_id: pr.head.sha,
+              event: 'APPROVE',
+              body: `✅ Pull Request aprovada por @${ALLOWED_SELF_APPROVER}.`
+            });

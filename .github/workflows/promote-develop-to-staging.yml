@@ -137,7 +137,7 @@ jobs:
               labels: [label]
             });
 
-            // Registrar os 3 checks obrigatórios validados neste workflow para o commit da branch
+            // Registrar os 3 checks de código/título como concluídos e o Deploy PR Preview como pendente (aguardando @deploy-pr)
             for (const checkName of ['Validate PR', 'Lint', 'Build']) {
               await github.rest.checks.create({
                 owner: context.repo.owner,
@@ -153,7 +153,19 @@ jobs:
               });
             }
 
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Deploy PR Preview',
+              head_sha: headSha,
+              status: 'in_progress',
+              output: {
+                title: 'Aguardando comando @deploy-pr nos comentários da PR',
+                summary: 'Comente `@deploy-pr` na Pull Request para gerar o ambiente temporário e concluir este check.'
+              }
+            });
+
             core.summary
               .addHeading('🚀 Pull Request de Promoção Pronta!')
-              .addRaw(`A PR **[#${prNumber} — ${prTitle}](${prUrl})** (\`${sourceBranch}\` → \`${targetBranch}\`) está aberta e com os checks aprovados.`)
+              .addRaw(`A PR **[#${prNumber} — ${prTitle}](${prUrl})** (\`${sourceBranch}\` → \`${targetBranch}\`) está aberta. Comente \`@deploy-pr\` e \`@approve\` para liberar o merge.`)
               .write();
