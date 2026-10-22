@@ -9,6 +9,7 @@ permissions:
   pull-requests: write
   issues: write
   deployments: write
+  checks: write
 
 jobs:
   deploy-preview:
@@ -24,7 +25,6 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            // Adicionar reação de foguete no comentário @deploy-pr
             await github.rest.reactions.createForIssueComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -32,7 +32,6 @@ jobs:
               content: 'rocket'
             });
 
-            // Buscar dados da branch da Pull Request
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -54,11 +53,25 @@ jobs:
             echo "missing=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Comment if Secrets are Missing
+      - name: Comment and Fail Check if Secrets are Missing
         if: steps.check-secrets.outputs.missing == 'true'
         uses: actions/github-script@v7
         with:
           script: |
+            const headSha = '${{ steps.pr-info.outputs.head_sha }}';
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Deploy PR Preview',
+              head_sha: headSha,
+              status: 'completed',
+              conclusion: 'failure',
+              output: {
+                title: 'Secrets da Vercel ausentes',
+                summary: 'Configure VERCEL_TOKEN, VERCEL_ORG_ID e VERCEL_PROJECT_ID nos Secrets do repositório.'
+              }
+            });
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -103,15 +116,31 @@ jobs:
           PREVIEW_URL=$(npx vercel deploy --prebuilt --token="$VERCEL_TOKEN")
           echo "preview_url=$PREVIEW_URL" >> $GITHUB_OUTPUT
 
-      - name: Post Preview URL Comment on PR
+      - name: Complete Check and Post Preview URL on PR
         if: steps.check-secrets.outputs.missing == 'false' && success()
         uses: actions/github-script@v7
         with:
           script: |
             const previewUrl = '${{ steps.vercel-deploy.outputs.preview_url }}';
             const branch = '${{ steps.pr-info.outputs.head_ref }}';
+            const headSha = '${{ steps.pr-info.outputs.head_sha }}';
             const shortSha = '${{ steps.pr-info.outputs.short_sha }}';
             const sender = context.payload.comment.user.login;
+
+            // Marcar o check obrigatório "Deploy PR Preview" como concluído com sucesso no commit da PR
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Deploy PR Preview',
+              head_sha: headSha,
+              status: 'completed',
+              conclusion: 'success',
+              details_url: previewUrl,
+              output: {
+                title: 'Ambiente temporário gerado com sucesso',
+                summary: `Preview disponível em: ${previewUrl}`
+              }
+            });
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -122,6 +151,7 @@ jobs:
                 '',
                 `- 🌐 **Link de Preview:** ${previewUrl}`,
                 `- 🌿 **Branch:** \`${branch}\` (\`${shortSha}\`)`,
-                `- 👤 **Solicitado por:** @${sender}`
+                `- 👤 **Solicitado por:** @${sender}`,
+                `- ✅ **Check \`Deploy PR Preview\` concluído!**`
               ].join('\n')
             });
