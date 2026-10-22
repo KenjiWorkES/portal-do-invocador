@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/src/pages/index.html"
+    },
+    {
+      "source": "/:page(index|timeline|regions|champions|modes|contact).html",
+      "destination": "/src/pages/:page.html"
+    }
+  ]
+}
