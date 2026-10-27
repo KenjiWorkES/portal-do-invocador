@@ -29,5 +29,5 @@ O check **`Deploy PR Preview`** inicia como pendente e é **obrigatório** para 
 
 - [ ] O título da PR segue o padrão `PIXP-0000: Nome da Task`
 - [ ] Pelo menos uma das tags obrigatórias (`feature`, `fix`, `docs` ou `refactor`) foi adicionada
-- [ ] Os checks de `Lint` e `Build` passaram sem erros
+- [ ] Os checks de `Lint`, `Build` e `SonarCloud Code Quality` passaram sem erros
 - [ ] O ambiente temporário foi gerado e validado com `@deploy-pr`

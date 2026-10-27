@@ -154,7 +154,7 @@ jobs:
             });
 
             // Registrar os 3 checks de código/título como concluídos e o Deploy PR Preview como pendente (aguardando @deploy-pr)
-            for (const checkName of ['Validate PR', 'Lint', 'Build']) {
+            for (const checkName of ['Validate PR', 'Lint', 'Build', 'SonarCloud Code Quality']) {
               await github.rest.checks.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
