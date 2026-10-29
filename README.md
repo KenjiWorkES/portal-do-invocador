@@ -34,7 +34,7 @@ O projeto utiliza um fluxo estruturado de promoção contínua entre três ambie
 - **CSS3 Modular & Design Tokens:** Estilização customizada com variáveis CSS (Custom Properties), layout responsivo (Grid/Flexbox) e estética Hextech.
 - **JavaScript (Vanilla ES6+):** Manipulação de DOM sem frameworks externos, consumo assíncrono de dados (`fetch`), filtros dinâmicos, carrossel interativo, validação de formulários e FAQ acessível (`aria-expanded`).
 - **Vite 6:** Servidor de desenvolvimento com Hot Module Replacement (HMR) e empacotador para build de produção Multi-Page.
-- **ESLint 9 & SonarCloud:** Padronização de código e análise estática contínua de qualidade e segurança.
+- **ESLint, Husky & SonarCloud:** Padronização de código com Git Hook `pre-commit` (que executa `npm run lint` automaticamente em todo `git commit`) e análise estática contínua de qualidade e segurança no SonarCloud.
 
 ---
 
@@ -53,7 +53,7 @@ O projeto utiliza um fluxo estruturado de promoção contínua entre três ambie
    cd portal-do-invocador
    ```
 
-2. **Instale as dependências:**
+2. **Instale as dependências (configura automaticamente o Git Hook do Husky):**
    ```bash
    npm install
    ```
@@ -87,12 +87,13 @@ git checkout -b feature/pixp-0000-nome-da-task
 ```
 *(Use prefixos semânticos como `feature/`, `fix/`, `docs/` ou `refactor/`).*
 
-### 2. Valide localmente antes de subir
-Antes de fazer o `push`, garanta que o linter e o build passam sem erros:
-```bash
-npm run lint
-npm run build
-```
+### 2. Faça o commit (Validação Automática de Lint no `pre-commit`)
+Sempre que você executar `git commit`, o **Husky** rodará automaticamente o comando `npm run lint` (configurado em [`.husky/pre-commit`](./.husky/pre-commit)):
+- Se houver qualquer erro de sintaxe ou regra do ESLint, **o commit será bloqueado automaticamente** até que o problema seja corrigido.
+- Antes de fazer o `push`, recomenda-se também validar o empacotamento:
+  ```bash
+  npm run build
+  ```
 
 ### 3. Abra a Pull Request apontando para `develop`
 Ao abrir a PR no GitHub, siga obrigatoriamente os **3 requisitos de governança**:
@@ -171,6 +172,9 @@ portal-do-invocador/
 │   │   ├── promote-develop-to-staging.yml
 │   │   └── promote-staging-to-main.yml
 │   └── pull_request_template.md
+│
+├── .husky/                       # Git Hooks (validação automática de lint antes do commit)
+│   └── pre-commit                # Executa `npm run lint` em todo `git commit`
 │
 ├── public/                       # Arquivos estáticos servidos diretamente na raiz
 │   └── data/
