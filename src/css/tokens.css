@@ -1,0 +1,88 @@
+:root {
+  
+  --color-abyss: #040911;  /* fundo principal e escuro profundo */
+  --color-surface: #0A1428;  /* Fundo de cartões, painéis e seções destacadas */
+
+
+  --color-gold-primary: #C8AA6E;  /* Ouro Hextech principal */
+  --color-gold-light: #F0E6D2;  /* Ouro Hextech principal */
+  --color-gold-dark: #785A28;  /*Ouro Hextech principal*/
+
+
+  --color-magic-cyan: #0AC8B9;  /*Azul mágico para foco, tags e estados ativos */
+  --color-text-primary: #A09B8C;  /*Texto corrido principal */
+  --color-error: #FF4E50; /* Mensagens e bordas de erro em formulários */
+  --color-success: #2DEB90; /* Feedback de confirmação e sucesso */
+
+
+  --font-heading: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+   --brand-600: #8A6A00;   /* Brand-600: dourado do hover da marca e dos avisos. */
+  --info-600: #007A72;    /* Info-600: tom mais escuro da escala informativa. */
+  --success-600: #008550; /* Success-600: verde do hover de uma ação de sucesso. */
+  --danger-600: #D43548;  /* Danger-600: vermelho do hover de uma ação destrutiva. */
+
+
+  /* FOREGROUND — texto e ícones */
+  --fg-primary: var(--color-gold-light);    /* Primary · Grey-50: títulos e texto de alto contraste. */
+  --fg-secondary: var(--color-text-primary); /* Secondary · Grey-200: rótulos e texto secundário. */
+  --fg-muted: #9A958A;                      /* Muted · Grey-400: legendas, datas e placeholders. */
+  --fg-disabled: #5B5A56;                   /* Disabled: texto e ícones de controles desabilitados. */
+
+  /* SURFACES — fundos */
+  --surface-page: var(--color-abyss);      /* Page · Grey-950: fundo geral da página. */
+  --surface-card: var(--color-surface);    /* Card · Grey-900: cartões e painéis. */
+  --surface-subtle: #091428;               /* Subtle: células alternadas e áreas rebaixadas. */
+  --surface-moderate: #0F1D38;             /* Moderate · Grey-800: chips e blocos de carregamento. */
+  --surface-strong: #162642;               /* Strong · Grey-700: avatares e barras de rolagem. */
+
+  /* BORDER — bordas e foco */
+  --border-default: var(--color-gold-dark); /* Default · Brand-700: divisores e contornos. */
+  --border-strong: #C8AA6F;                 /* Strong · Brand-400: borda em destaque. */
+  --border-focus-ring: #0AC7B7;             /* Focus ring · Info-400: foco de teclado. */
+
+  /* NEUTRAL ACTIONS — botões secundários */
+  --neutral-fill: var(--surface-card);     /* Neutral fill · Grey-900: fundo padrão. */
+  --neutral-hover: var(--surface-moderate); /* Hover · Grey-800: cursor sobre o controle. */
+  --neutral-pressed: var(--surface-strong); /* Pressed · Grey-700: enquanto o controle é pressionado. */
+  --neutral-disabled: var(--surface-subtle); /* Disabled: fundo do controle indisponível. */
+  --on-neutral: var(--fg-primary);          /* On neutral · Grey-50: texto e ícones sobre o botão. */
+
+  /* ACCENTS — botões primários e marca */
+  --brand-fill: var(--border-strong);       /* Brand fill · Brand-400: fundo da ação primária. */
+  --on-brand: var(--surface-page);          /* On brand · Grey-950: texto e ícones sobre o dourado. */
+  --brand-hover: var(--brand-600);          /* Hover · Brand-600: cursor sobre a ação primária. */
+  --brand-pressed: var(--color-gold-dark);  /* Pressed · Brand-700: ação primária pressionada. */
+  --brand-disabled: var(--fg-primary);      /* Disabled · Grey-50 na primeira coluna. */
+
+  /* SUCCESS — confirmação e sucesso */
+  --success-fill: #2DEB8F;                  /* Success-300: preenchimento de selos e confirmações. */
+  --on-success: #00290A;                    /* Success-950: conteúdo sobre o preenchimento sólido. */
+  --success-surface: #08261C;               /* Surface: fundo discreto da mensagem. */
+  --success-border: var(--success-fill);    /* Success-300: borda da mensagem. */
+  --success-text: #006642;                  /* Success-700: texto na primeira coluna. */
+  --success-hover: var(--success-600);      /* Success-600: ação de sucesso sob o cursor. */
+  --success-pressed: #006642;               /* Success-700: ação de sucesso pressionada. */
+  --success-disabled: #A5F3BE;              /* Success-200: fundo desabilitado na primeira coluna. */
+
+  /* WARNING — aviso e atenção */
+  --warning-fill: var(--brand-fill);        /* Brand-400: preenchimento de avisos e selos pendentes. */
+  --on-warning: #272111;                    /* Warning-950: conteúdo sobre o preenchimento sólido. */
+  --warning-surface: #241B0B;               /* Surface: fundo discreto da mensagem. */
+  --warning-border: var(--color-gold-dark); /* Brand-700: borda da mensagem. */
+  --warning-text: var(--color-gold-dark);   /* Brand-700: texto na primeira coluna. */
+  --warning-hover: var(--brand-600);        /* Brand-600: ação de aviso sob o cursor. */
+  --warning-pressed: var(--color-gold-dark); /* Brand-700: ação de aviso pressionada. */
+  --warning-disabled: var(--fg-primary);    /* Grey-50: fundo desabilitado na primeira coluna. */
+
+  /* ERROR — erro e ações destrutivas */
+  --error-fill: #E84057;                    /* Danger-500: preenchimento sólido de erro. */
+  --on-error: #FFFFFF;                      /* Generic-0: conteúdo sobre o preenchimento sólido. */
+  --error-surface: #2A0D14;                 /* Surface: fundo discreto da mensagem. */
+  --error-border: var(--error-fill);        /* Danger-500: borda de erro da referência. */
+  --error-text: #AC353D;                    /* Danger-700: texto na primeira coluna. */
+  --error-hover: var(--danger-600);         /* Danger-600: ação destrutiva sob o cursor. */
+  --error-pressed: #AC353D;                 /* Danger-700: ação destrutiva pressionada. */
+  --error-disabled: #FBD5D9;                /* Danger-200: fundo desabilitado na primeira coluna. */
+}

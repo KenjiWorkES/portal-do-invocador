@@ -1,10 +1,10 @@
-/* ==========================================================================
-   PORTAL DO INVOCADOR — ESTILOS GERAIS & COMPONENTES (COMPONENTS.CSS)
-   ========================================================================== */
+/* Portal do Invocador — components.css */
+@import "./tokens.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* Reset Universal & Box Sizing */
+/* Estilos globais */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -14,28 +14,37 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  background-color: #040911;
-  color: #A09B8C;
+  background-color: var(--color-abyss);
+  color: var(--color-text-primary);
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.55;
-  background-color: #040911;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(10, 200, 185, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 10% 40%, rgba(200, 170, 110, 0.03) 0%, transparent 50%);
+  background-color: var(--color-abyss);
+  background-image:
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in srgb, var(--color-magic-cyan) 4%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 10% 40%,
+      color-mix(in srgb, var(--color-gold-primary) 3%, transparent) 0%,
+      transparent 50%
+    );
   background-attachment: fixed;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Superfícies do Navegador Tematizadas (Craft Floor) */
+/* Seleção, barra de rolagem e foco de teclado */
+
 ::selection {
-  background-color: #C8AA6E;
-  color: #040911;
+  background-color: var(--color-gold-primary);
+  color: var(--color-abyss);
 }
 
 ::-webkit-scrollbar {
@@ -43,29 +52,30 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #040911;
-  border-left: 1px solid rgba(120, 90, 40, 0.2);
+  background: var(--color-abyss);
+  border-left: 1px solid color-mix(in srgb, var(--color-gold-dark) 20%, transparent);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #785A28;
+  background: var(--color-gold-dark);
   border-radius: 2px;
-  border: 2px solid #040911;
+  border: 2px solid var(--color-abyss);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8AA6E;
+  background: var(--color-gold-primary);
 }
 
 :focus-visible {
-  outline: 2px solid #0AC8B9;
+  outline: 2px solid var(--color-magic-cyan);
   outline-offset: 3px;
 }
 
-/* Hierarquia Tipográfica */
+/* Tipografia e elementos de conteúdo */
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
-  color: #F0E6D2;
+  font-family: var(--font-heading);
+  color: var(--color-gold-light);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -88,7 +98,8 @@ img {
   display: block;
 }
 
-/* Utilitários de Layout */
+/* Utilitários de layout */
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -108,7 +119,7 @@ img {
 
 .section-title {
   font-size: 2.25rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 12px;
   position: relative;
   display: inline-block;
@@ -120,29 +131,28 @@ img {
   width: 80px;
   height: 2px;
   margin: 14px auto 0;
-  background: linear-gradient(90deg, transparent, #C8AA6E, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-gold-primary), transparent);
 }
 
 .section-subtitle {
   font-size: 1.05rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   max-width: 620px;
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   1. HEADER & NAVBAR
-   -------------------------------------------------------------------------- */
+/* 1. Cabeçalho e navegação */
+
 .header-hextech {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
-  background-color: rgba(10, 20, 40, 0.94);
+  background-color: color-mix(in srgb, var(--color-surface) 94%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid #785A28;
+  border-bottom: 1px solid var(--color-gold-dark);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -162,8 +172,8 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #F0E6D2;
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  color: var(--color-gold-light);
+  font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -172,8 +182,8 @@ img {
 .brand-icon {
   width: 32px;
   height: 32px;
-  fill: #C8AA6E;
-  filter: drop-shadow(0 0 6px rgba(200, 170, 110, 0.4));
+  fill: var(--color-gold-primary);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold-primary) 40%, transparent));
 }
 
 .main-nav {
@@ -183,10 +193,10 @@ img {
 }
 
 .nav-link {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 8px 4px;
@@ -194,11 +204,11 @@ img {
 }
 
 .nav-link:hover {
-  color: #F0E6D2;
+  color: var(--color-gold-light);
 }
 
 .nav-link.active {
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
 }
 
 .nav-link.active::after {
@@ -208,28 +218,27 @@ img {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #0AC8B9;
+  background-color: var(--color-magic-cyan);
 }
 
 .mobile-menu-btn {
   display: none;
   background: transparent;
-  border: 1px solid #785A28;
+  border: 1px solid var(--color-gold-dark);
   padding: 8px;
   cursor: pointer;
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
   border-radius: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   2. BOTÕES HEXTECH
-   -------------------------------------------------------------------------- */
+/* 2. Botões Hextech */
+
 .btn-hextech {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -242,40 +251,39 @@ img {
 }
 
 .btn-hextech-primary {
-  background: linear-gradient(135deg, #DFBE7D 0%, #C8AA6E 100%);
-  color: #040911;
+  background: linear-gradient(135deg, var(--color-gold-highlight) 0%, var(--color-gold-primary) 100%);
+  color: var(--color-abyss);
   font-weight: 700;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
 }
 
 .btn-hextech-primary:hover {
-  background: linear-gradient(135deg, #F0E6D2 0%, #DFBE7D 100%);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.65);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-highlight) 100%);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 65%, transparent);
   transform: translateY(-2px);
 }
 
 .btn-hextech-secondary {
-  background: rgba(10, 20, 40, 0.6);
-  color: #F0E6D2;
-  border: 1px solid #C8AA6E;
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold-primary);
 }
 
 .btn-hextech-secondary:hover {
-  background: rgba(200, 170, 110, 0.12);
-  border-color: #F0E6D2;
+  background: color-mix(in srgb, var(--color-gold-primary) 12%, transparent);
+  border-color: var(--color-gold-light);
   transform: translateY(-2px);
 }
 
-/* --------------------------------------------------------------------------
-   3. HERO CAROUSEL (HOME)
-   -------------------------------------------------------------------------- */
+/* 3. Carrossel da página inicial */
+
 .hero-carousel {
   position: relative;
   width: 100%;
   height: 560px;
-  background-color: #0A1428;
-  border-bottom: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-gold-dark);
   overflow: hidden;
 }
 
@@ -300,7 +308,12 @@ img {
 .carousel-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(4, 9, 17, 0.95) 0%, rgba(4, 9, 17, 0.65) 50%, rgba(4, 9, 17, 0.3) 100%);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-abyss) 95%, transparent) 0%,
+    color-mix(in srgb, var(--color-abyss) 65%, transparent) 50%,
+    color-mix(in srgb, var(--color-abyss) 30%, transparent) 100%
+  );
 }
 
 .carousel-content {
@@ -315,11 +328,11 @@ img {
 
 .carousel-tag {
   display: inline-block;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #0AC8B9;
+  color: var(--color-magic-cyan);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -327,13 +340,13 @@ img {
 .carousel-title {
   font-size: 2.75rem;
   line-height: 1.15;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 18px;
 }
 
 .carousel-desc {
   font-size: 1.05rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   margin-bottom: 28px;
 }
 
@@ -348,9 +361,9 @@ img {
 }
 
 .carousel-arrow {
-  background: rgba(10, 20, 40, 0.8);
-  border: 1px solid #785A28;
-  color: #C8AA6E;
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border: 1px solid var(--color-gold-dark);
+  color: var(--color-gold-primary);
   width: 44px;
   height: 44px;
   display: flex;
@@ -362,9 +375,9 @@ img {
 }
 
 .carousel-arrow:hover {
-  background: #0F1D38;
-  border-color: #C8AA6E;
-  color: #F0E6D2;
+  background: var(--figma-color-surface-hover);
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
 }
 
 .carousel-dots {
@@ -375,7 +388,7 @@ img {
 .carousel-dot {
   width: 24px;
   height: 4px;
-  background: rgba(160, 155, 140, 0.3);
+  background: color-mix(in srgb, var(--color-text-primary) 30%, transparent);
   border-radius: 2px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -383,65 +396,68 @@ img {
 
 .carousel-dot.active {
   width: 40px;
-  background: #C8AA6E;
+  background: var(--color-gold-primary);
 }
 
-/* --------------------------------------------------------------------------
-   4. HERO PAGE BANNER (PÁGINAS INTERNAS)
-   -------------------------------------------------------------------------- */
+/* 4. Banner das páginas internas */
+
 .page-banner {
   padding: 64px 0 54px;
-  background-color: #0A1428;
-  border-bottom: 1px solid #785A28;
-  background-image: radial-gradient(circle at 50% 30%, rgba(10, 200, 185, 0.08) 0%, transparent 70%);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-gold-dark);
+  background-image: radial-gradient(
+    circle at 50% 30%,
+    color-mix(in srgb, var(--color-magic-cyan) 8%, transparent) 0%,
+    transparent 70%
+  );
   text-align: center;
 }
 
 .breadcrumb {
   font-size: 0.85rem;
-  color: #9A958A;
+  color: var(--fg-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 14px;
 }
 
 .breadcrumb a {
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
 }
 
 .page-banner-title {
   font-size: 2.75rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 12px;
 }
 
 .page-banner-desc {
   font-size: 1.1rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   max-width: 680px;
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   5. FAMÍLIA HEXTECH CARDS
-   -------------------------------------------------------------------------- */
+/* 5. Cartões Hextech */
+
 .hextech-card {
-  background-color: #0A1428;
-  border: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold-dark);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
 }
 
 .hextech-card:hover {
-  border-color: #C8AA6E;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--generic-black) 75%, transparent);
   transform: translateY(-4px);
 }
 
-/* Card: Campeões (Vertical) */
+/* Cartão de campeão */
+
 .card--champion {
   display: flex;
   flex-direction: column;
@@ -470,7 +486,11 @@ img {
 .champion-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(4, 9, 17, 0.95) 85%);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    color-mix(in srgb, var(--color-abyss) 95%, transparent) 85%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -494,36 +514,37 @@ img {
 }
 
 .badge-role {
-  background-color: rgba(200, 170, 110, 0.2);
-  color: #F0E6D2;
-  border: 1px solid #C8AA6E;
+  background-color: color-mix(in srgb, var(--color-gold-primary) 20%, transparent);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold-primary);
 }
 
 .badge-region {
-  background-color: rgba(10, 200, 185, 0.15);
-  color: #0AC8B9;
-  border: 1px solid rgba(10, 200, 185, 0.4);
+  background-color: color-mix(in srgb, var(--color-magic-cyan) 15%, transparent);
+  color: var(--color-magic-cyan);
+  border: 1px solid color-mix(in srgb, var(--color-magic-cyan) 40%, transparent);
 }
 
 .champion-name {
   font-size: 1.45rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 2px;
 }
 
 .champion-title {
   font-size: 0.85rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   font-style: italic;
   margin-bottom: 6px;
 }
 
 .champion-meta {
   font-size: 0.78rem;
-  color: #9A958A;
+  color: var(--fg-muted);
 }
 
-/* Card: Regiões (Paisagem) */
+/* Cartão de região */
+
 .card--region {
   display: flex;
   flex-direction: column;
@@ -556,32 +577,33 @@ img {
 
 .region-title {
   font-size: 1.35rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 4px;
 }
 
 .region-motto {
   font-size: 0.88rem;
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
   font-style: italic;
   margin-bottom: 12px;
 }
 
 .region-desc {
   font-size: 0.92rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   margin-bottom: 16px;
   flex-grow: 1;
 }
 
 .region-icons {
   font-size: 0.8rem;
-  color: #9A958A;
-  border-top: 1px solid rgba(120, 90, 40, 0.3);
+  color: var(--fg-muted);
+  border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 30%, transparent);
   padding-top: 10px;
 }
 
-/* Card: Modos de Jogo (Split) */
+/* Cartão de modo de jogo */
+
 .card--mode {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -611,30 +633,29 @@ img {
 }
 
 .badge-status-active {
-  background: rgba(45, 235, 144, 0.15);
-  color: #2DEB90;
-  border: 1px solid rgba(45, 235, 144, 0.4);
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  color: var(--color-success);
+  border: 1px solid color-mix(in srgb, var(--color-success) 40%, transparent);
 }
 
 .badge-status-legacy {
-  background: rgba(160, 155, 140, 0.15);
-  color: #A09B8C;
-  border: 1px solid rgba(160, 155, 140, 0.3);
+  background: color-mix(in srgb, var(--color-text-primary) 15%, transparent);
+  color: var(--color-text-primary);
+  border: 1px solid color-mix(in srgb, var(--color-text-primary) 30%, transparent);
 }
 
 .badge-status-rotating {
-  background: rgba(200, 170, 110, 0.2);
-  color: #C8AA6E;
-  border: 1px solid #C8AA6E;
+  background: color-mix(in srgb, var(--color-gold-primary) 20%, transparent);
+  color: var(--color-gold-primary);
+  border: 1px solid var(--color-gold-primary);
 }
 
-/* --------------------------------------------------------------------------
-   6. FAIXA DE MÉTRICAS (KPI STRIP)
-   -------------------------------------------------------------------------- */
+/* 6. Faixa de métricas */
+
 .kpi-strip {
-  background-color: #0A1428;
-  border-top: 1px solid #785A28;
-  border-bottom: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-gold-dark);
+  border-bottom: 1px solid var(--color-gold-dark);
   padding: 40px 0;
 }
 
@@ -656,28 +677,27 @@ img {
   right: 0;
   width: 1px;
   height: 70%;
-  background: linear-gradient(180deg, transparent, #785A28, transparent);
+  background: linear-gradient(180deg, transparent, var(--color-gold-dark), transparent);
 }
 
 .kpi-number {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 2.75rem;
   font-weight: 700;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   line-height: 1;
   margin-bottom: 8px;
 }
 
 .kpi-label {
   font-size: 0.95rem;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-/* --------------------------------------------------------------------------
-   7. SEÇÃO SPLIT 50/50 (Z-PATTERN)
-   -------------------------------------------------------------------------- */
+/* 7. Seção em duas colunas */
+
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -686,9 +706,9 @@ img {
 }
 
 .split-media {
-  border: 1px solid #785A28;
+  border: 1px solid var(--color-gold-dark);
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
   overflow: hidden;
 }
 
@@ -700,7 +720,7 @@ img {
 
 .split-content h2 {
   font-size: 2rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 16px;
 }
 
@@ -716,30 +736,29 @@ img {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  color: #A09B8C;
+  color: var(--color-text-primary);
 }
 
 .feature-bullet {
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
   font-weight: bold;
 }
 
-/* --------------------------------------------------------------------------
-   8. CITAÇÃO ÉPICA (QUOTE BANNER)
-   -------------------------------------------------------------------------- */
+/* 8. Banner de citação */
+
 .quote-banner {
   padding: 60px 0;
-  background-color: #0A1428;
-  border-top: 1px solid #785A28;
-  border-bottom: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-gold-dark);
+  border-bottom: 1px solid var(--color-gold-dark);
   text-align: center;
 }
 
 .quote-text {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.45rem;
   font-style: italic;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   max-width: 820px;
   margin: 0 auto 12px;
   line-height: 1.4;
@@ -747,14 +766,13 @@ img {
 
 .quote-author {
   font-size: 0.9rem;
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* --------------------------------------------------------------------------
-   9. TRILHA DA LINHA DO TEMPO (TIMELINE)
-   -------------------------------------------------------------------------- */
+/* 9. Linha do tempo */
+
 .timeline-track {
   position: relative;
   max-width: 960px;
@@ -769,7 +787,12 @@ img {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: linear-gradient(180deg, #C8AA6E 0%, #785A28 50%, #0AC8B9 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-gold-primary) 0%,
+    var(--color-gold-dark) 50%,
+    var(--color-magic-cyan) 100%
+  );
   transform: translateX(-50%);
 }
 
@@ -797,10 +820,10 @@ img {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: #040911;
-  border: 3px solid #C8AA6E;
+  background-color: var(--color-abyss);
+  border: 3px solid var(--color-gold-primary);
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--generic-black) 60%, transparent);
   z-index: 10;
 }
 
@@ -809,22 +832,21 @@ img {
 }
 
 .timeline-year {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0AC8B9;
+  color: var(--color-magic-cyan);
   margin-bottom: 4px;
 }
 
 .timeline-title {
   font-size: 1.25rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 10px;
 }
 
-/* --------------------------------------------------------------------------
-   10. CONTROLES DE CATÁLOGO & FILTROS (CAMPEÕES)
-   -------------------------------------------------------------------------- */
+/* 10. Catálogo de campeões e filtros */
+
 .catalog-controls {
   display: flex;
   flex-direction: column;
@@ -839,19 +861,19 @@ img {
 
 .search-input {
   width: 100%;
-  background-color: #0A1428;
-  border: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold-dark);
   padding: 14px 18px 14px 44px;
-  color: #F0E6D2;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-gold-light);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .search-input:focus {
-  border-color: #0AC8B9;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  border-color: var(--color-magic-cyan);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -862,7 +884,7 @@ img {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  fill: #C8AA6E;
+  fill: var(--color-gold-primary);
 }
 
 .filter-pills {
@@ -872,10 +894,10 @@ img {
 }
 
 .filter-pill {
-  background: #0A1428;
-  border: 1px solid #785A28;
-  color: #A09B8C;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold-dark);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -887,15 +909,15 @@ img {
 }
 
 .filter-pill:hover {
-  border-color: #C8AA6E;
-  color: #F0E6D2;
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
 }
 
 .filter-pill.active {
-  background: #C8AA6E;
-  color: #040911;
-  border-color: #C8AA6E;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  background: var(--color-gold-primary);
+  color: var(--color-abyss);
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--generic-black) 40%, transparent);
 }
 
 .champions-grid {
@@ -908,18 +930,17 @@ img {
   grid-column: 1 / -1;
   text-align: center;
   padding: 60px 20px;
-  background-color: #0A1428;
-  border: 1px dashed #785A28;
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-gold-dark);
 }
 
 .empty-state h3 {
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   11. ACCORDION FAQ (SUPORTE & CONTATO)
-   -------------------------------------------------------------------------- */
+/* 11. FAQ de suporte e contato */
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -929,16 +950,16 @@ img {
 }
 
 .faq-item {
-  background-color: #0A1428;
-  border: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold-dark);
   border-radius: 2px;
   overflow: hidden;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-item.active {
-  border-color: #C8AA6E;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
 }
 
 .faq-header {
@@ -949,8 +970,8 @@ img {
   padding: 20px 24px;
   background: transparent;
   border: none;
-  color: #F0E6D2;
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  color: var(--color-gold-light);
+  font-family: var(--font-heading);
   font-size: 1.05rem;
   text-align: left;
   cursor: pointer;
@@ -960,7 +981,7 @@ img {
 .faq-icon {
   width: 18px;
   height: 18px;
-  fill: #C8AA6E;
+  fill: var(--color-gold-primary);
   transition: transform 0.3s ease;
   flex-shrink: 0;
   margin-left: 12px;
@@ -975,7 +996,7 @@ img {
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.3s ease;
   padding: 0 24px;
-  color: #A09B8C;
+  color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
@@ -987,12 +1008,11 @@ img {
   grid-template-rows: 1fr;
   padding-top: 14px;
   padding-bottom: 20px;
-  border-top: 1px solid rgba(120, 90, 40, 0.2);
+  border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 20%, transparent);
 }
 
-/* --------------------------------------------------------------------------
-   12. FORMULÁRIO DE CONTATO
-   -------------------------------------------------------------------------- */
+/* 12. Formulário de contato */
+
 .contact-layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -1005,30 +1025,30 @@ img {
 
 .form-label {
   display: block;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
   margin-bottom: 8px;
 }
 
 .form-control {
   width: 100%;
-  background-color: #0A1428;
-  border: 1px solid #785A28;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold-dark);
   padding: 14px 18px;
-  color: #F0E6D2;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-gold-light);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .form-control:focus {
-  border-color: #0AC8B9;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  border-color: var(--color-magic-cyan);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -1044,32 +1064,32 @@ textarea.form-control {
 }
 
 .form-group.has-error .form-control {
-  border-color: #E84057;
+  border-color: var(--figma-color-danger);
 }
 
 .form-group.has-error .form-feedback {
-  color: #E84057;
+  color: var(--figma-color-danger);
   display: block;
 }
 
-/* Toast de Confirmação */
+/* Mensagem de confirmação */
+
 .toast-success {
   display: none;
-  background-color: #0A1428;
-  border: 1px solid #2DEB90;
-  color: #F0E6D2;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-success);
+  color: var(--color-gold-light);
   padding: 16px 24px;
   border-radius: 2px;
   margin-top: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--generic-black) 60%, transparent);
 }
 
-/* --------------------------------------------------------------------------
-   13. FOOTER INSTITUCIONAL
-   -------------------------------------------------------------------------- */
+/* 13. Rodapé institucional */
+
 .footer-hextech {
-  background-color: #040911;
-  border-top: 1px solid #785A28;
+  background-color: var(--color-abyss);
+  border-top: 1px solid var(--color-gold-dark);
   padding: 64px 0 32px;
   margin-top: 80px;
 }
@@ -1083,7 +1103,7 @@ textarea.form-control {
 
 .footer-col-title {
   font-size: 1.1rem;
-  color: #F0E6D2;
+  color: var(--color-gold-light);
   margin-bottom: 18px;
 }
 
@@ -1095,20 +1115,20 @@ textarea.form-control {
 }
 
 .footer-links a {
-  color: #A09B8C;
+  color: var(--color-text-primary);
   font-size: 0.9rem;
 }
 
 .footer-links a:hover {
-  color: #C8AA6E;
+  color: var(--color-gold-primary);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(120, 90, 40, 0.25);
+  border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 25%, transparent);
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.82rem;
-  color: #9A958A;
+  color: var(--fg-muted);
 }
