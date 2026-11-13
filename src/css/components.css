@@ -1,10 +1,10 @@
-/* ==========================================================================
-   PORTAL DO INVOCADOR — ESTILOS GERAIS & COMPONENTES (COMPONENTS.CSS)
-   ========================================================================== */
+/* Portal do Invocador — components.css */
+@import "./tokens.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* Reset Universal & Box Sizing */
+/* Estilos globais */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -19,20 +19,29 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.55;
   background-color: var(--color-abyss);
-  background-image: 
-    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--color-magic-cyan) 4%, transparent) 0%, transparent 60%),
-    radial-gradient(circle at 10% 40%, color-mix(in srgb, var(--color-gold-primary) 3%, transparent) 0%, transparent 50%);
+  background-image:
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in srgb, var(--color-magic-cyan) 4%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 10% 40%,
+      color-mix(in srgb, var(--color-gold-primary) 3%, transparent) 0%,
+      transparent 50%
+    );
   background-attachment: fixed;
   color: var(--color-text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Superfícies do Navegador Tematizadas (Craft Floor) */
+/* Seleção, barra de rolagem e foco de teclado */
+
 ::selection {
   background-color: var(--color-gold-primary);
   color: var(--color-abyss);
@@ -62,9 +71,10 @@ body {
   outline-offset: 3px;
 }
 
-/* Hierarquia Tipográfica */
+/* Tipografia e elementos de conteúdo */
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   color: var(--color-gold-light);
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -88,7 +98,8 @@ img {
   display: block;
 }
 
-/* Utilitários de Layout */
+/* Utilitários de layout */
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -130,9 +141,8 @@ img {
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   1. HEADER & NAVBAR
-   -------------------------------------------------------------------------- */
+/* 1. Cabeçalho e navegação */
+
 .header-hextech {
   position: sticky;
   top: 0;
@@ -163,7 +173,7 @@ img {
   align-items: center;
   gap: 12px;
   color: var(--color-gold-light);
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -183,7 +193,7 @@ img {
 }
 
 .nav-link {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-text-primary);
@@ -221,15 +231,14 @@ img {
   border-radius: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   2. BOTÕES HEXTECH
-   -------------------------------------------------------------------------- */
+/* 2. Botões Hextech */
+
 .btn-hextech {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -242,16 +251,16 @@ img {
 }
 
 .btn-hextech-primary {
-  background: linear-gradient(135deg, var(--border-strong) 0%, var(--color-gold-primary) 100%);
+  background: linear-gradient(135deg, var(--color-gold-highlight) 0%, var(--color-gold-primary) 100%);
   color: var(--color-abyss);
   font-weight: 700;
   border: none;
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-abyss) 45%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
 }
 
 .btn-hextech-primary:hover {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--border-strong) 100%);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-abyss) 65%, transparent);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-highlight) 100%);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 65%, transparent);
   transform: translateY(-2px);
 }
 
@@ -267,9 +276,8 @@ img {
   transform: translateY(-2px);
 }
 
-/* --------------------------------------------------------------------------
-   3. HERO CAROUSEL (HOME)
-   -------------------------------------------------------------------------- */
+/* 3. Carrossel da página inicial */
+
 .hero-carousel {
   position: relative;
   width: 100%;
@@ -300,7 +308,12 @@ img {
 .carousel-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--color-abyss) 95%, transparent) 0%, color-mix(in srgb, var(--color-abyss) 65%, transparent) 50%, color-mix(in srgb, var(--color-abyss) 30%, transparent) 100%);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-abyss) 95%, transparent) 0%,
+    color-mix(in srgb, var(--color-abyss) 65%, transparent) 50%,
+    color-mix(in srgb, var(--color-abyss) 30%, transparent) 100%
+  );
 }
 
 .carousel-content {
@@ -315,7 +328,7 @@ img {
 
 .carousel-tag {
   display: inline-block;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -362,7 +375,7 @@ img {
 }
 
 .carousel-arrow:hover {
-  background: var(--surface-moderate);
+  background: var(--figma-color-surface-hover);
   border-color: var(--color-gold-primary);
   color: var(--color-gold-light);
 }
@@ -386,14 +399,17 @@ img {
   background: var(--color-gold-primary);
 }
 
-/* --------------------------------------------------------------------------
-   4. HERO PAGE BANNER (PÁGINAS INTERNAS)
-   -------------------------------------------------------------------------- */
+/* 4. Banner das páginas internas */
+
 .page-banner {
   padding: 64px 0 54px;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-gold-dark);
-  background-image: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--color-magic-cyan) 8%, transparent) 0%, transparent 70%);
+  background-image: radial-gradient(
+    circle at 50% 30%,
+    color-mix(in srgb, var(--color-magic-cyan) 8%, transparent) 0%,
+    transparent 70%
+  );
   text-align: center;
 }
 
@@ -422,26 +438,26 @@ img {
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   5. FAMÍLIA HEXTECH CARDS
-   -------------------------------------------------------------------------- */
+/* 5. Cartões Hextech */
+
 .hextech-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-gold-dark);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-abyss) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
 }
 
 .hextech-card:hover {
   border-color: var(--color-gold-primary);
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-abyss) 75%, transparent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--generic-black) 75%, transparent);
   transform: translateY(-4px);
 }
 
-/* Card: Campeões (Vertical) */
+/* Cartão de campeão */
+
 .card--champion {
   display: flex;
   flex-direction: column;
@@ -470,7 +486,11 @@ img {
 .champion-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--color-abyss) 95%, transparent) 85%);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    color-mix(in srgb, var(--color-abyss) 95%, transparent) 85%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -523,7 +543,8 @@ img {
   color: var(--fg-muted);
 }
 
-/* Card: Regiões (Paisagem) */
+/* Cartão de região */
+
 .card--region {
   display: flex;
   flex-direction: column;
@@ -581,7 +602,8 @@ img {
   padding-top: 10px;
 }
 
-/* Card: Modos de Jogo (Split) */
+/* Cartão de modo de jogo */
+
 .card--mode {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -628,9 +650,8 @@ img {
   border: 1px solid var(--color-gold-primary);
 }
 
-/* --------------------------------------------------------------------------
-   6. FAIXA DE MÉTRICAS (KPI STRIP)
-   -------------------------------------------------------------------------- */
+/* 6. Faixa de métricas */
+
 .kpi-strip {
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-gold-dark);
@@ -660,7 +681,7 @@ img {
 }
 
 .kpi-number {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 2.75rem;
   font-weight: 700;
   color: var(--color-gold-light);
@@ -675,9 +696,8 @@ img {
   letter-spacing: 0.05em;
 }
 
-/* --------------------------------------------------------------------------
-   7. SEÇÃO SPLIT 50/50 (Z-PATTERN)
-   -------------------------------------------------------------------------- */
+/* 7. Seção em duas colunas */
+
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -688,7 +708,7 @@ img {
 .split-media {
   border: 1px solid var(--color-gold-dark);
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-abyss) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
   overflow: hidden;
 }
 
@@ -724,9 +744,8 @@ img {
   font-weight: bold;
 }
 
-/* --------------------------------------------------------------------------
-   8. CITAÇÃO ÉPICA (QUOTE BANNER)
-   -------------------------------------------------------------------------- */
+/* 8. Banner de citação */
+
 .quote-banner {
   padding: 60px 0;
   background-color: var(--color-surface);
@@ -736,7 +755,7 @@ img {
 }
 
 .quote-text {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.45rem;
   font-style: italic;
   color: var(--color-gold-light);
@@ -752,9 +771,8 @@ img {
   letter-spacing: 0.1em;
 }
 
-/* --------------------------------------------------------------------------
-   9. TRILHA DA LINHA DO TEMPO (TIMELINE)
-   -------------------------------------------------------------------------- */
+/* 9. Linha do tempo */
+
 .timeline-track {
   position: relative;
   max-width: 960px;
@@ -769,7 +787,12 @@ img {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: linear-gradient(180deg, var(--color-gold-primary) 0%, var(--color-gold-dark) 50%, var(--color-magic-cyan) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-gold-primary) 0%,
+    var(--color-gold-dark) 50%,
+    var(--color-magic-cyan) 100%
+  );
   transform: translateX(-50%);
 }
 
@@ -800,7 +823,7 @@ img {
   background-color: var(--color-abyss);
   border: 3px solid var(--color-gold-primary);
   border-radius: 50%;
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-abyss) 60%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--generic-black) 60%, transparent);
   z-index: 10;
 }
 
@@ -809,7 +832,7 @@ img {
 }
 
 .timeline-year {
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-magic-cyan);
@@ -822,9 +845,8 @@ img {
   margin-bottom: 10px;
 }
 
-/* --------------------------------------------------------------------------
-   10. CONTROLES DE CATÁLOGO & FILTROS (CAMPEÕES)
-   -------------------------------------------------------------------------- */
+/* 10. Catálogo de campeões e filtros */
+
 .catalog-controls {
   display: flex;
   flex-direction: column;
@@ -843,7 +865,7 @@ img {
   border: 1px solid var(--color-gold-dark);
   padding: 14px 18px 14px 44px;
   color: var(--color-gold-light);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -851,7 +873,7 @@ img {
 
 .search-input:focus {
   border-color: var(--color-magic-cyan);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-abyss) 45%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -875,7 +897,7 @@ img {
   background: var(--color-surface);
   border: 1px solid var(--color-gold-dark);
   color: var(--color-text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -895,7 +917,7 @@ img {
   background: var(--color-gold-primary);
   color: var(--color-abyss);
   border-color: var(--color-gold-primary);
-  box-shadow: 0 2px 6px color-mix(in srgb, var(--color-abyss) 40%, transparent);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--generic-black) 40%, transparent);
 }
 
 .champions-grid {
@@ -917,9 +939,8 @@ img {
   margin-bottom: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   11. ACCORDION FAQ (SUPORTE & CONTATO)
-   -------------------------------------------------------------------------- */
+/* 11. FAQ de suporte e contato */
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -938,7 +959,7 @@ img {
 
 .faq-item.active {
   border-color: var(--color-gold-primary);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-abyss) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
 }
 
 .faq-header {
@@ -950,7 +971,7 @@ img {
   background: transparent;
   border: none;
   color: var(--color-gold-light);
-  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 1.05rem;
   text-align: left;
   cursor: pointer;
@@ -990,9 +1011,8 @@ img {
   border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 20%, transparent);
 }
 
-/* --------------------------------------------------------------------------
-   12. FORMULÁRIO DE CONTATO
-   -------------------------------------------------------------------------- */
+/* 12. Formulário de contato */
+
 .contact-layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -1005,7 +1025,7 @@ img {
 
 .form-label {
   display: block;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1020,7 +1040,7 @@ img {
   border: 1px solid var(--color-gold-dark);
   padding: 14px 18px;
   color: var(--color-gold-light);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1028,7 +1048,7 @@ img {
 
 .form-control:focus {
   border-color: var(--color-magic-cyan);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-abyss) 45%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -1044,15 +1064,16 @@ textarea.form-control {
 }
 
 .form-group.has-error .form-control {
-  border-color: var(--error-fill);
+  border-color: var(--figma-color-danger);
 }
 
 .form-group.has-error .form-feedback {
-  color: var(--error-fill);
+  color: var(--figma-color-danger);
   display: block;
 }
 
-/* Toast de Confirmação */
+/* Mensagem de confirmação */
+
 .toast-success {
   display: none;
   background-color: var(--color-surface);
@@ -1061,12 +1082,11 @@ textarea.form-control {
   padding: 16px 24px;
   border-radius: 2px;
   margin-top: 20px;
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--color-abyss) 60%, transparent);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--generic-black) 60%, transparent);
 }
 
-/* --------------------------------------------------------------------------
-   13. FOOTER INSTITUCIONAL
-   -------------------------------------------------------------------------- */
+/* 13. Rodapé institucional */
+
 .footer-hextech {
   background-color: var(--color-abyss);
   border-top: 1px solid var(--color-gold-dark);
