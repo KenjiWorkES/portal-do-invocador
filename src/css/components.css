@@ -1,9 +1,11 @@
-/* Portal do Invocador — components.css */
+/* ==========================================================================
+   PORTAL DO INVOCADOR — ESTILOS GERAIS & COMPONENTES (COMPONENTS.CSS)
+   ========================================================================== */
 @import "./tokens.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* Estilos globais */
+/* Reset Universal & Box Sizing */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -40,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Seleção, barra de rolagem e foco de teclado */
+/* Superfícies do Navegador Tematizadas (Craft Floor) */
 
 ::selection {
   background-color: var(--color-gold-primary);
@@ -71,7 +73,7 @@ body {
   outline-offset: 3px;
 }
 
-/* Tipografia e elementos de conteúdo */
+/* Hierarquia Tipográfica */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -98,7 +100,7 @@ img {
   display: block;
 }
 
-/* Utilitários de layout */
+/* Utilitários de Layout */
 
 .container {
   width: 100%;
@@ -141,7 +143,9 @@ img {
   margin: 0 auto;
 }
 
-/* 1. Cabeçalho e navegação */
+/* --------------------------------------------------------------------------
+   1. HEADER & NAVBAR
+   -------------------------------------------------------------------------- */
 
 .header-hextech {
   position: sticky;
@@ -231,7 +235,9 @@ img {
   border-radius: 2px;
 }
 
-/* 2. Botões Hextech */
+/* --------------------------------------------------------------------------
+   2. BOTÕES HEXTECH
+   -------------------------------------------------------------------------- */
 
 .btn-hextech {
   display: inline-flex;
@@ -276,7 +282,9 @@ img {
   transform: translateY(-2px);
 }
 
-/* 3. Carrossel da página inicial */
+/* --------------------------------------------------------------------------
+   3. HERO CAROUSEL (HOME)
+   -------------------------------------------------------------------------- */
 
 .hero-carousel {
   position: relative;
@@ -399,7 +407,9 @@ img {
   background: var(--color-gold-primary);
 }
 
-/* 4. Banner das páginas internas */
+/* --------------------------------------------------------------------------
+   4. HERO PAGE BANNER (PÁGINAS INTERNAS)
+   -------------------------------------------------------------------------- */
 
 .page-banner {
   padding: 64px 0 54px;
@@ -438,7 +448,9 @@ img {
   margin: 0 auto;
 }
 
-/* 5. Cartões Hextech */
+/* --------------------------------------------------------------------------
+   5. FAMÍLIA HEXTECH CARDS
+   -------------------------------------------------------------------------- */
 
 .hextech-card {
   background-color: var(--color-surface);
@@ -456,7 +468,7 @@ img {
   transform: translateY(-4px);
 }
 
-/* Cartão de campeão */
+/* Card: Campeões (Vertical) */
 
 .card--champion {
   display: flex;
@@ -543,7 +555,7 @@ img {
   color: var(--fg-muted);
 }
 
-/* Cartão de região */
+/* Card: Regiões (Paisagem) */
 
 .card--region {
   display: flex;
@@ -602,7 +614,7 @@ img {
   padding-top: 10px;
 }
 
-/* Cartão de modo de jogo */
+/* Card: Modos de Jogo (Split) */
 
 .card--mode {
   display: grid;
@@ -650,7 +662,9 @@ img {
   border: 1px solid var(--color-gold-primary);
 }
 
-/* 6. Faixa de métricas */
+/* --------------------------------------------------------------------------
+   6. FAIXA DE MÉTRICAS (KPI STRIP)
+   -------------------------------------------------------------------------- */
 
 .kpi-strip {
   background-color: var(--color-surface);
@@ -696,7 +710,9 @@ img {
   letter-spacing: 0.05em;
 }
 
-/* 7. Seção em duas colunas */
+/* --------------------------------------------------------------------------
+   7. SEÇÃO SPLIT 50/50 (Z-PATTERN)
+   -------------------------------------------------------------------------- */
 
 .split-section {
   display: grid;
@@ -744,7 +760,9 @@ img {
   font-weight: bold;
 }
 
-/* 8. Banner de citação */
+/* --------------------------------------------------------------------------
+   8. CITAÇÃO ÉPICA (QUOTE BANNER)
+   -------------------------------------------------------------------------- */
 
 .quote-banner {
   padding: 60px 0;
@@ -771,7 +789,9 @@ img {
   letter-spacing: 0.1em;
 }
 
-/* 9. Linha do tempo */
+/* --------------------------------------------------------------------------
+   9. TRILHA DA LINHA DO TEMPO (TIMELINE)
+   -------------------------------------------------------------------------- */
 
 .timeline-track {
   position: relative;
@@ -845,7 +865,9 @@ img {
   margin-bottom: 10px;
 }
 
-/* 10. Catálogo de campeões e filtros */
+/* --------------------------------------------------------------------------
+   10. CONTROLES DE CATÁLOGO & FILTROS (CAMPEÕES)
+   -------------------------------------------------------------------------- */
 
 .catalog-controls {
   display: flex;
@@ -939,7 +961,9 @@ img {
   margin-bottom: 8px;
 }
 
-/* 11. FAQ de suporte e contato */
+/* --------------------------------------------------------------------------
+   11. ACCORDION FAQ (SUPORTE & CONTATO)
+   -------------------------------------------------------------------------- */
 
 .faq-list {
   display: flex;
@@ -1011,7 +1035,9 @@ img {
   border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 20%, transparent);
 }
 
-/* 12. Formulário de contato */
+/* --------------------------------------------------------------------------
+   12. FORMULÁRIO DE CONTATO
+   -------------------------------------------------------------------------- */
 
 .contact-layout {
   display: grid;
@@ -1072,7 +1098,7 @@ textarea.form-control {
   display: block;
 }
 
-/* Mensagem de confirmação */
+/* Toast de Confirmação */
 
 .toast-success {
   display: none;
@@ -1085,7 +1111,9 @@ textarea.form-control {
   box-shadow: 0 6px 18px color-mix(in srgb, var(--generic-black) 60%, transparent);
 }
 
-/* 13. Rodapé institucional */
+/* --------------------------------------------------------------------------
+   13. FOOTER INSTITUCIONAL
+   -------------------------------------------------------------------------- */
 
 .footer-hextech {
   background-color: var(--color-abyss);
