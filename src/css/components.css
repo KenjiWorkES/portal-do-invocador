@@ -264,7 +264,7 @@ img {
 
 .btn-hextech-primary:hover {
   background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 65%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-generic-black) 65%, transparent);
   transform: translateY(-2px);
 }
 
@@ -455,14 +455,14 @@ img {
   border: 1px solid var(--color-gold-dark);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-generic-black) 55%, transparent);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
 }
 
 .hextech-card:hover {
   border-color: var(--color-gold-primary);
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--generic-black) 75%, transparent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-generic-black) 75%, transparent);
   transform: translateY(-4px);
 }
 
@@ -722,7 +722,7 @@ img {
 .split-media {
   border: 1px solid var(--color-gold-dark);
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-generic-black) 55%, transparent);
   overflow: hidden;
 }
 
@@ -841,7 +841,7 @@ img {
   background-color: var(--color-abyss);
   border: 3px solid var(--color-gold-primary);
   border-radius: 50%;
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--generic-black) 60%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-generic-black) 60%, transparent);
   z-index: 10;
 }
 
@@ -893,7 +893,7 @@ img {
 
 .search-input:focus {
   border-color: var(--color-magic-cyan);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -937,7 +937,7 @@ img {
   background: var(--color-gold-primary);
   color: var(--color-abyss);
   border-color: var(--color-gold-primary);
-  box-shadow: 0 2px 6px color-mix(in srgb, var(--generic-black) 40%, transparent);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--color-generic-black) 40%, transparent);
 }
 
 .champions-grid {
@@ -981,7 +981,7 @@ img {
 
 .faq-item.active {
   border-color: var(--color-gold-primary);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--generic-black) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-generic-black) 55%, transparent);
 }
 
 .faq-header {
@@ -1072,7 +1072,7 @@ img {
 
 .form-control:focus {
   border-color: var(--color-magic-cyan);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--generic-black) 45%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-generic-black) 45%, transparent);
   outline: none;
 }
 
@@ -1106,7 +1106,7 @@ textarea.form-control {
   padding: 16px 24px;
   border-radius: 2px;
   margin-top: 20px;
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--generic-black) 60%, transparent);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--color-generic-black) 60%, transparent);
 }
 
 /* --------------------------------------------------------------------------
