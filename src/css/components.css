@@ -381,7 +381,7 @@ img {
 }
 
 .carousel-arrow:hover {
-  background: var(--figma-color-surface-hover);
+  background: var(--color-surface-strong);
   border-color: var(--color-gold-primary);
   color: var(--color-gold-light);
 }
