@@ -1088,11 +1088,11 @@ textarea.form-control {
 }
 
 .form-group.has-error .form-control {
-  border-color: var(--figma-color-danger);
+  border-color: var(--color-danger);
 }
 
 .form-group.has-error .form-feedback {
-  color: var(--figma-color-danger);
+  color: var(--color-danger);
   display: block;
 }
 
