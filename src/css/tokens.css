@@ -28,11 +28,11 @@
   --font-heading: 'Cinzel', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --brand-600: #8A6A00;
+  --color-brand-600: #8A6A00;
   /* Brand-600: dourado do hover da marca e dos avisos. */
-  --info-600: #007A72;
+  --color-info-600: #007A72;
   /* Info-600: tom mais escuro da escala informativa. */
-  --success-600: #008550;
+  --color-success-600: #008550;
   /* Success-600: verde do hover de uma ação de sucesso. */
   --color-danger-600: #D43548;
   /* Danger-600: vermelho do hover de uma ação destrutiva. */
