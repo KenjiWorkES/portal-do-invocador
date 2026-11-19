@@ -1,12 +1,11 @@
 /* ==========================================================================
    PORTAL DO INVOCADOR — ESTILOS GERAIS & COMPONENTES (COMPONENTS.CSS)
    ========================================================================== */
-@import "./tokens.css";
+
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 /* Reset Universal & Box Sizing */
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -74,7 +73,6 @@ body {
 }
 
 /* Hierarquia Tipográfica */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-gold-light);
@@ -425,7 +423,7 @@ img {
 
 .breadcrumb {
   font-size: 0.85rem;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 14px;
@@ -552,7 +550,7 @@ img {
 
 .champion-meta {
   font-size: 0.78rem;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
 }
 
 /* Card: Regiões (Paisagem) */
@@ -609,7 +607,7 @@ img {
 
 .region-icons {
   font-size: 0.8rem;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
   border-top: 1px solid color-mix(in srgb, var(--color-gold-dark) 30%, transparent);
   padding-top: 10px;
 }
@@ -1158,5 +1156,5 @@ textarea.form-control {
   justify-content: space-between;
   align-items: center;
   font-size: 0.82rem;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
 }
