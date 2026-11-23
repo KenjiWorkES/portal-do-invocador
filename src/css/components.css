@@ -25,11 +25,11 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.55;
-  background-color: #040911;
+  background-color: var(--color-abyss);
   background-image:
     radial-gradient(circle at 50% 0%, rgba(10, 200, 185, 0.04) 0%, transparent 60%),
     radial-gradient(circle at 10% 40%, rgba(200, 170, 110, 0.03) 0%, transparent 50%);
-=======
+
   background-color: var(--color-abyss);
   background-image:
     radial-gradient(
@@ -90,7 +90,7 @@ h5,
 h6 {
   font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
   color: #F0E6D2;
-=======
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-gold-light);
@@ -98,6 +98,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  }
+
 }
 
 p {
@@ -826,7 +828,7 @@ img {
   width: 2px;
 
   background: linear-gradient(180deg, #C8AA6E 0%, #4b4842 50%, #0AC8B9 100%);
-=======
+
   background: linear-gradient(
     180deg,
     var(--color-gold-primary) 0%,
@@ -1182,7 +1184,7 @@ textarea.form-control {
   font-size: 0.82rem;
 
   color: #9A958A;
-=======
+
   color: var(--color-fg-muted);
 
 }
