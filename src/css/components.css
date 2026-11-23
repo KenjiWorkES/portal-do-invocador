@@ -5,7 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 /* Reset Universal & Box Sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -23,7 +25,7 @@ body {
   font-weight: 400;
   line-height: 1.55;
   background-color: #040911;
-  background-image: 
+  background-image:
     radial-gradient(circle at 50% 0%, rgba(10, 200, 185, 0.04) 0%, transparent 60%),
     radial-gradient(circle at 10% 40%, rgba(200, 170, 110, 0.03) 0%, transparent 50%);
   background-attachment: fixed;
@@ -63,7 +65,12 @@ body {
 }
 
 /* Hierarquia Tipográfica */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
   color: #F0E6D2;
   font-weight: 600;
@@ -769,7 +776,7 @@ img {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: linear-gradient(180deg, #C8AA6E 0%, #785A28 50%, #0AC8B9 100%);
+  background: linear-gradient(180deg, #C8AA6E 0%, #4b4842 50%, #0AC8B9 100%);
   transform: translateX(-50%);
 }
 
@@ -821,6 +828,7 @@ img {
   color: #F0E6D2;
   margin-bottom: 10px;
 }
+
 
 /* --------------------------------------------------------------------------
    10. CONTROLES DE CATÁLOGO & FILTROS (CAMPEÕES)
